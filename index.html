@@ -95,7 +95,7 @@
       <div class="float-end me-5 mt-3">
         <label for="api-contracts">Release Version:</label>
         <select id="contract-dropdown" onchange="upadteContract()">
-          <option value="draft-1.x">draft-1.x</option>
+          <option value="draft-1.x">draft-1.2x</option>
           <!-- <option value="draft-2.x">draft-2.x</option> -->
           <!-- <option value="master">master</option> -->
         </select>
@@ -130,7 +130,7 @@
                   >Flow-UI</a
                 >
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a
                   class="nav-link"
                   id="attribute-tab"
@@ -140,7 +140,7 @@
                   aria-selected="false"
                   >Attribute-UI</a
                 >
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a
                   class="nav-link"
@@ -250,16 +250,13 @@
                     <select
                       id="feature-sets-dropdown"
                       class="form-select" onchange="markdownConverter()">
-                      <option>BRD B2C Exports</option>
-                      <option>OPGSP Payment Flow</option>
-                      <option>Full Catalog Refresh</option>
-                      <option>Incremental Catalog Refresh</option>
-                      <option>Customizations</option>
-                      <option>Variants</option>
+                      <option>Baseline Features</option>
+                      <option>Item Availability</option>
+                      <option>Cancellation</option>
+                      <option>Return</option>
+                      <option>Weight Differential Charges</option>
                       <option>Offers</option>
-                      <option>Part Cancel By Merchant</option>
-                      <option>Return With Reverse QC</option>
-                      <option>Return With Liquidation</option>
+                      <option>Order Update Actions</option>
                   </select>
                   </td>
                 </tr>
