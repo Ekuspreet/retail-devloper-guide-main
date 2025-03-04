@@ -642,8 +642,14 @@ bpp_terms:
   - code: TAX_NUMBER
     description: GST no for buyer NP for TDS deduction at seller NP | (or) | on_init - GST no for ISN/MSN for TDS/TCS deduction / input credit, KYC verification. For MSN/ISN with stores located in multiple states, the GST no for HQ for the provider legal entity should be provided
     reference: <PR/Issue/Discussion Links md format text>
+  - code: PROVIDER_TAX_NUMBER
+    description: Provider tax number
+    reference: <PR/Issue/Discussion Links md format text>
   - code: ACCEPT_BAP_TERMS
     description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: NP_TYPE
+    description: Allowed Values - [ISN, MSN]
     reference: <PR/Issue/Discussion Links md format text>
 bap_terms:
   - code: ACCEPT_BPP_TERMS
@@ -665,12 +671,36 @@ cancel_request:
   - code: CANCELLED_BY
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+  - code: PRECANCEL_STATE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: UPDATED_AT
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
   - code: RTO_ID
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
   - code: RETRY_COUNT
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+igm_request:
+- code: ID
+  description: id for the igm issue
+  reference: <PR/Issue/Discussion Links md format text>
+routing:
+- code: TYPE
+  description: [P2P, P2H2P]
+  reference: <PR/Issue/Discussion Links md format text>
+tracking:
+- code: GPS_ENABLED
+  description: Description about the tags
+  reference: <PR/Issue/Discussion Links md format text>
+- code: URL_ENABLED
+  description: Description about the tags
+  reference: <PR/Issue/Discussion Links md format text>
+- code: URL
+  description: Description about the tags
+  reference: <PR/Issue/Discussion Links md format text>
 quote_trail:
   - code: TYPE
     description: matches order.quote.breakup[].title_type

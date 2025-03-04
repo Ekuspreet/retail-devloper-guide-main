@@ -9,7 +9,7 @@ value:
     bap_uri: https://buyerNP.com/ondc
     transaction_id: 072ccd93-3928-49d4-b6ef-9c8bf69745f8
     message_id: 56dd08ab-c183-49c4-ae1f-6040f0801618
-    timestamp: '2024-11-15T05:53:13.175Z'
+    timestamp: "2024-11-15T05:53:13.175Z"
     bpp_id: sellerNP.com
     ttl: PT30S
   message:
@@ -28,7 +28,7 @@ value:
               list:
                 - code: type
                   value: item
-          parent_item_id: ShxCIU+v5vYa
+          parent_item_id: RNO0lGOd4WSx
           fulfillment_id: a48b0756-c7fe-469a-bf52-946529b5b2ba
         - id: C1
           quantity:
@@ -44,7 +44,7 @@ value:
                 - code: id
                   value: CG1
           fulfillment_id: a48b0756-c7fe-469a-bf52-946529b5b2ba
-          parent_item_id: ShxCIU+v5vYa
+          parent_item_id: RNO0lGOd4WSx
         - id: C4
           quantity:
             count: 2
@@ -59,7 +59,7 @@ value:
                 - code: id
                   value: CG2
           fulfillment_id: a48b0756-c7fe-469a-bf52-946529b5b2ba
-          parent_item_id: ShxCIU+v5vYa
+          parent_item_id: RNO0lGOd4WSx
         - id: C12
           quantity:
             count: 2
@@ -74,7 +74,7 @@ value:
                 - code: id
                   value: CG5
           fulfillment_id: a48b0756-c7fe-469a-bf52-946529b5b2ba
-          parent_item_id: ShxCIU+v5vYa
+          parent_item_id: RNO0lGOd4WSx
         - id: C13
           quantity:
             count: 2
@@ -89,7 +89,7 @@ value:
                 - code: id
                   value: CG5
           fulfillment_id: a48b0756-c7fe-469a-bf52-946529b5b2ba
-          parent_item_id: ShxCIU+v5vYa
+          parent_item_id: RNO0lGOd4WSx
         - id: 7a1eb7d6-c522-5a69-936d-b9ebbaf88869
           quantity:
             count: 2
@@ -167,21 +167,21 @@ value:
           city: Noida
           state: Uttar Pradesh
           country: IND
-          area_code: '201301'
+          area_code: "201301"
           locality: Unnamed Road
           name: saurav
-        phone: '7004498992'
+        phone: "7004498992"
         name: saurav
         email: nobody@nomail.com
-        created_at: '2024-11-15T05:53:13.175Z'
-        updated_at: '2024-11-15T05:53:13.175Z'
+        created_at: "2024-11-15T05:53:13.175Z"
+        updated_at: "2024-11-15T05:53:13.175Z"
       fulfillments:
         - id: a48b0756-c7fe-469a-bf52-946529b5b2ba
           type: Delivery
           end:
             contact:
               email: nobody@nomail.com
-              phone: '7004498992'
+              phone: "7004498992"
             location:
               gps: 28.621295,77.385178
               address:
@@ -189,7 +189,7 @@ value:
                 city: Noida
                 state: Uttar Pradesh
                 country: IND
-                area_code: '201301'
+                area_code: "201301"
                 locality: Unnamed Road
                 name: saurav
           tracking: true

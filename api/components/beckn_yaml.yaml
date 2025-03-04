@@ -363,45 +363,45 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-  /rating:
-    post:
-      tags:
-        - ONDC Seller App
-      description: Provide feedback on a service
-      requestBody:
-        description: Buyer rates for one or more rating categories
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  $ref: '#/components/schemas/Context'
-                message:
-                  $ref: '#/components/schemas/Rating'
-              required:
-                - context
-                - message
-      responses:
-        '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
-  # /support:
+  # /rating:
+  #   post:
+  #     tags:
+  #       - ONDC Seller App
+  #     description: Provide feedback on a service
+  #     requestBody:
+  #       description: Buyer rates for one or more rating categories
+  #       content:
+  #         application/json:
+  #           schema:
+  #             type: object
+  #             properties:
+  #               context:
+  #                 $ref: '#/components/schemas/Context'
+  #               message:
+  #                 $ref: '#/components/schemas/Rating'
+  #             required:
+  #               - context
+  #               - message
+  #     responses:
+  #       '200':
+  #         description: Acknowledgement of message received
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #               properties:
+  #                 message:
+  #                   type: object
+  #                   properties:
+  #                     ack:
+  #                       $ref: '#/components/schemas/Ack'
+  #                   required:
+  #                     - ack
+  #                 error:
+  #                   $ref: '#/components/schemas/Error'
+  #               required:
+  #                 - message
+  # # /support:
   #   post:
   #     tags:
   #       - ONDC Seller App
@@ -795,46 +795,46 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-  /on_rating:
-    post:
-      tags:
-        - ONDC Buyer App
-      description: Provide feedback on a service
-      requestBody:
-        description: Seller provides response to rating provided by buyer
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  $ref: '#/components/schemas/Context'
-                message:
-                  $ref: '#/components/schemas/RatingAck'
-                error:
-                  $ref: '#/components/schemas/Error'
-              required:
-                - context
-      responses:
-        '200':
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: '#/components/schemas/Ack'
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
-  # /on_support:
+  # /on_rating:
+  #   post:
+  #     tags:
+  #       - ONDC Buyer App
+  #     description: Provide feedback on a service
+  #     requestBody:
+  #       description: Seller provides response to rating provided by buyer
+  #       content:
+  #         application/json:
+  #           schema:
+  #             type: object
+  #             properties:
+  #               context:
+  #                 $ref: '#/components/schemas/Context'
+  #               message:
+  #                 $ref: '#/components/schemas/RatingAck'
+  #               error:
+  #                 $ref: '#/components/schemas/Error'
+  #             required:
+  #               - context
+  #     responses:
+  #       '200':
+  #         description: Acknowledgement of message received
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #               properties:
+  #                 message:
+  #                   type: object
+  #                   properties:
+  #                     ack:
+  #                       $ref: '#/components/schemas/Ack'
+  #                   required:
+  #                     - ack
+  #                 error:
+  #                   $ref: '#/components/schemas/Error'
+  #               required:
+  #                 - message
+  # # /on_support:
   #   post:
   #     tags:
   #       - ONDC Buyer App

@@ -89,13 +89,18 @@ on_confirm:
         fulfillment_state:
           $ref: "./fulfillments.yaml#/fulfillments/state"
       payment:
-        $ref: "./payment.yaml"
+        $ref: "./payment.yaml#/payment2"
 update:
   context: *context
   message:
+    update_target:
+      $ref: "./update_target.yaml#/update_target"
     order:
-      payment:
-        $ref: "./payment.yaml"
+      payment: &payment
+        $ref: "./payment.yaml#/payment2"
+    fulfillments:
+      type:
+        $ref: "./fulfillments_update.yaml#/fulfillments/type"
 on_update:
   context: *context
   message:
@@ -103,14 +108,16 @@ on_update:
       $ref: "./order.yaml#/order"
       fulfillments:
         state:
-          $ref: "./fulfillments.yaml#/fulfillments/state"
+          $ref: "./fulfillments_update.yaml#/fulfillments/state"
+        type:
+          $ref: "./fulfillments_update.yaml#/fulfillments/type"
         instructions:
           $ref: "./fulfillments.yaml#/fulfillments/instructions"
       quote:
         breakup:
           $ref: "./title_type.yaml#/breakup"
       payment:
-        $ref: "./payment.yaml"
+        $ref: "./payment.yaml#/payment2"
 status:
   context: *context
 on_status:
@@ -127,23 +134,25 @@ on_status:
         breakup:
           $ref: "./title_type.yaml#/breakup"
       payment:
-        $ref: "./payment.yaml"
+        $ref: "./payment.yaml#/payment2"
 cancel:
   context: *context
 on_cancel:
   context: *context
   message:
     order:
+      state:
+        $ref: "./order_cancel.yaml#/order/state"
       fulfillments:
         type: 
           $ref: "./fulfillments.yaml#/fulfillments/type"
         state:
-          $ref: "./fulfillments.yaml#/fulfillments/state"
+          $ref: "./fulfillments_cancel.yaml#/fulfillments/state"
       quote:
         breakup:
           $ref: "./title_type.yaml#/breakup"
       payment:
-        $ref: "./payment.yaml"
+        $ref: "./payment.yaml#/payment2"
 track:
   context: *context
 on_track:

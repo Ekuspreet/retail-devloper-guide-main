@@ -6,7 +6,7 @@ value:
     bap_id: buyerNP.com
     bap_uri: https://buyerNP.com/ondc
     bpp_id: sellerNP.com
-    bpp_uri: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
     transaction_id: 91728968-9aea-4d66-94a5-49dc89820af8
     message_id: 0e13aa2f5db83c4484abed6fd4c76328
     city: std:080
@@ -83,7 +83,7 @@ value:
               code: Order-delivered
           type: Delivery
           tracking: false
-          "@ondc/org/TAT": PT1H60M
+          "@ondc/org/TAT": PT2H
           start:
             location:
               id: location_15

@@ -1,5 +1,5 @@
-summary: Retail 1.2.0 (flow - 2)
-description: Retail platforms enable seamless e-commerce, allowing buyers to search, select, and track products while sellers manage inventory. The search and on_search APIs retrieve catalog details, select and on_select manage item selection, and init and on_init establish agreements. Confirm and on_confirm process orders, on_status tracks progress, and track and on_track enable live tracking.
+summary: Retail 1.2.0 (Delivery)
+description: The Order Fulfillment Phase in ONDC covers item selection, order confirmation, and tracking. The Buyer NP selects items (/select), and the Seller NP responds with serviceability details (/on_select). Both parties finalize terms (/init, /on_init), and the order is placed (/confirm). The Seller NP then accepts, defers, or rejects the order (/on_confirm). Post-order, The Seller NP provides unsolicited updates (/on_status) until delivery while the Buyer NP tracks the order (/track) and Seller NP sends the tracking detail (/on_track).
 details:
   - description: Buyer Search & Quotation
     mermaidGraph: >-
@@ -31,19 +31,19 @@ details:
   - description: Post-order APIs
     mermaidGraph: >-
       sequenceDiagram
-
+      
         participant B2C BAP
         participant B2C BPP
-        
+
         B2C BAP ->> B2C BPP: **/status** - Buyer requests for a Status update
 
-        B2C BPP ->> B2C BAP: /on_status - Status Updates - Order Packed
-        B2C BPP ->> B2C BAP: /on_status - Status Updates - Agent Assigned
-        B2C BPP ->> B2C BAP: /on_status - Status Updates - Order Picked Up
-        B2C BPP ->> B2C BAP: /on_status - Status Updates - Out for Delivery
-        B2C BPP ->> B2C BAP: /on_status - Status Updates - Order Delivered
-        B2C BPP ->> B2C BAP: /track - Tracking Initiated
-        B2C BPP ->> B2C BAP: /on_track - Real-time Tracking Updates
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Packed
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Agent Assigned
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Picked Up
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Out for Delivery
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Delivered
+        B2C BAP ->> B2C BPP: **/track** - Tracking Initiated
+        B2C BPP ->> B2C BAP: **/on_track** - Real-time Tracking Updates
 reference: if any
 steps:
   - summary: BAP sends the search request
@@ -78,48 +78,48 @@ steps:
       $ref: "../../examples/B2C/flow-2/05_init.yaml"
   - summary: Respond to init
     api: on_init
-    description:
+    description: Respond to init
     reference: if any
     example:
       $ref: "../../examples/B2C/flow-2/06_on_init.yaml"
   - summary: Buyer confirms product
     api: confirm
-    description:
+    description: Buyer confirms product
     reference: if any
     example:
       $ref: "../../examples/B2C/flow-2/07_confirm.yaml"
   - summary: Seller Accepts confirmation
     api: on_confirm
-    description:
+    description: Seller Accepts confirmation
     reference: if any
     example:
       $ref: "../../examples/B2C/flow-2/08_on_confirm.yaml"
   - summary: Status updates - order packed
-    api: on_status
+    api: on_status - packed
     description: Status updates - order packed
     reference: if any
     example:
       $ref: "../../examples/B2C/flow-2/09_on_status_packed.yaml"
   - summary: Status updates - agent assigned
-    api: on_status
+    api: on_status - agent assigned
     description: Status updates - agent assigned
     reference: if any
     example:
       $ref: "../../examples/B2C/flow-2/10_01_on_status_agent_assigned.yaml"
   - summary: Status updates - order picked up
-    api: on_status
+    api: on_status - picked
     description: Status updates - order picked up
     reference: if any
     example:
       $ref: "../../examples/B2C/flow-2/10_on_status_picked.yaml"
   - summary: Status updates - order out for delivery
-    api: on_status
+    api: on_status - out_for_delivery
     description: Status updates - order out for delivery
     reference: if any
     example:
       $ref: "../../examples/B2C/flow-2/11_on_status_out_for_delivery.yaml"
   - summary: Status updates - order delivered
-    api: on_status
+    api: on_status - order_delivered
     description: Status updates - order delivered
     reference: if any
     example:

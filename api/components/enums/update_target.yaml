@@ -1,0 +1,7 @@
+update_target:
+- code: payment
+  description: about the enum
+  reference: <PR/Issue/Discussion Links md format text>
+- code: item
+  description: about the enum
+  reference: <PR/Issue/Discussion Links md format text>

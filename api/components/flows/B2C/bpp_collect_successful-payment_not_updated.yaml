@@ -1,0 +1,87 @@
+summary: Retail 1.2.0 (Payment Collected but Status Not Updated)
+description: The buyer makes the payment, but the SNP is unable to update the payment status immediately. The SNP still marks collection success (bpp_collect.success="Y") but keeps payment.status="NOT-PAID". The BNP can choose to either terminate the transaction or proceed with /confirm, trusting that the SNP will update the status later.If BNP proceeds with /confirm, SNP should honour /confirm as per the contract and it will be the SNP’s responsibility to subsequently update payment.status when available
+details:
+  - description: Buyer Search & Quotation
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant Gateway
+        participant B2C BPP
+
+        B2C BAP->>Gateway: **/search**  - Buyer searches for full catalog refresh
+        Gateway->>B2C BPP: **/search**  - Buyer searches for full catalog refresh
+        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain
+
+  - description: Pre-order APIs
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BAP ->> B2C BPP: **/select** - Buyer adds the item(s) to the cart.
+        B2C BPP ->> B2C BAP: **/on_select** - Returns quote breakup (adding offers if any) when item is in stock 
+
+        B2C BAP ->> B2C BPP: **/init** - Buyer initializes the order and proceeds to checkout.
+        B2C BPP ->> B2C BAP: **/on_init** - Seller app initializes order
+        B2C BPP ->> B2C BAP: **/on_init - unsolicited** - Unsolicited on_init call
+         
+        B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms order
+        B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts order
+reference: if any
+steps:
+  - summary: BAP sends the search request
+    api: search
+    description: BAP sends the search request
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/bpp-collect-flow/bpp_collect_successful-payment_not_updated/01_search_full_catalog_refresh.yaml"
+  - summary: BPP returns the full catalog refresh
+    api: on_search
+    description: BPP returns the full catalog refresh
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/bpp-collect-flow/bpp_collect_successful-payment_not_updated/02_on_search_full_catalog_refresh.yaml"
+  - summary: BAP select the item
+    api: select
+    description: BAP select the item
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/bpp-collect-flow/bpp_collect_successful-payment_not_updated/03_select.yaml"
+  - summary: BPP returns item breakup when item is in stock and offer applied (if any)
+    api: on_select
+    description: BPP returns item breakup when item is in stock and offer applied (if any)
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/bpp-collect-flow/bpp_collect_successful-payment_not_updated/04_on_select.yaml"
+  - summary: Buyer initiate the product and send the updated fulfillment id
+    api: init
+    description: Buyer initiate the product and send the updated fulfillment id
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/bpp-collect-flow/bpp_collect_successful-payment_not_updated/05_init.yaml"
+  - summary: Respond to init
+    api: on_init
+    description: Respond to init
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/bpp-collect-flow/bpp_collect_successful-payment_not_updated/06_on_init.yaml"
+  - summary: Unsolicited on_init
+    api: on_init - unsolicited
+    description: Unsolicited on_init
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/bpp-collect-flow/bpp_collect_successful-payment_not_updated/07_on_init_unsolicited.yaml"
+  - summary: Buyer confirms product
+    api: confirm
+    description: Buyer confirms product
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/bpp-collect-flow/bpp_collect_successful-payment_not_updated/08_confirm.yaml"
+  - summary: Seller Accepts confirmation
+    api: on_confirm
+    description: Seller Accepts confirmation
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/bpp-collect-flow/bpp_collect_successful-payment_not_updated/09_on_confirm.yaml"

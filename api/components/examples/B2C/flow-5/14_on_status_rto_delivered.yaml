@@ -6,7 +6,7 @@ value:
     bpp_id: sellerNP.com
     domain: ONDC:RET12
     bap_uri: https://buyerNP.com/ondc
-    bpp_uri: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
     country: IND
     timestamp: "2024-08-08T10:14:29.467Z"
     message_id: 71602bde-0307-45a5-94c8-f337db8b9257

@@ -1,0 +1,138 @@
+value:
+  context:
+    domain: ONDC:RET12
+    country: IND
+    city: std:080
+    action: on_select
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: 68079e7c-0af9-4e16-a356-2e6ec708e2cb
+    message_id: b8772264-1709-451b-8dcf-acb2b6ffe588
+    timestamp: '2024-08-08T10:01:12.392Z'
+    bpp_id: sellerNP.com
+  message:
+    order:
+      provider:
+        id: 5b3981a7-512d-4ac4-bd75-ea48eff89a53
+        locations:
+          - id: 668e238e1b106d310473ddb0
+      fulfillments:
+        - id: 3ac6a056-ceba-4c14-8e5d-ab5dd72d5239
+          type: Delivery
+          '@ondc/org/provider_name': Seller Business
+          tracking: false
+          '@ondc/org/category': Standard Delivery
+          '@ondc/org/TAT': P4D
+          state:
+            descriptor:
+              code: Serviceable
+        - id: F3
+          type: Buyer-Delivery
+          '@ondc/org/provider_name': ''
+          tracking: false
+          '@ondc/org/category': ''
+          '@ondc/org/TAT': PT60M
+          state:
+            descriptor:
+              code: Serviceable
+          tags:
+            - code: weight
+              list:
+                - code: unit
+                  value: kilogram
+                - code: value
+                  value: '1'
+            - code: length
+              list:
+                - code: unit
+                  value: centimeter
+                - code: value
+                  value: '1'
+            - code: breadth
+              list:
+                - code: unit
+                  value: centimeter
+                - code: value
+                  value: '1'
+            - code: height
+              list:
+                - code: unit
+                  value: centimeter
+                - code: value
+                  value: '1'
+      quote:
+        price:
+          value: '135.00'
+          currency: INR
+        breakup:
+          - '@ondc/org/item_id': 839cb128-34bd-444d-9ffc-05903e62b35a
+            '@ondc/org/item_quantity':
+              count: 1
+            title: Butterfly Beautiful 12 Gold Necklace
+            '@ondc/org/title_type': item
+            price:
+              currency: INR
+              value: '100.00'
+            item:
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '10'
+              price:
+                currency: INR
+                value: '100.00'
+          - '@ondc/org/item_id': 3ac6a056-ceba-4c14-8e5d-ab5dd72d5239
+            title: Delivery charges
+            '@ondc/org/title_type': delivery
+            price:
+              currency: INR
+              value: '10.00'
+          - '@ondc/org/item_id': 3ac6a056-ceba-4c14-8e5d-ab5dd72d5239
+            title: Convenience Fee
+            '@ondc/org/title_type': misc
+            price:
+              currency: INR
+              value: '5.00'
+          - '@ondc/org/item_id': F3
+            title: Delivery charges
+            '@ondc/org/title_type': delivery
+            price:
+              currency: INR
+              value: '0.00'
+            item:
+              tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: fulfillment
+          - '@ondc/org/item_id': F3
+            title: Packing charges
+            '@ondc/org/title_type': packing
+            price:
+              currency: INR
+              value: '20.00'
+            item:
+              tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: fulfillment
+          - '@ondc/org/item_id': F3
+            title: Convenience fee
+            '@ondc/org/title_type': misc
+            price:
+              currency: INR
+              value: '0.00'
+            item:
+              tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: fulfillment
+        ttl: P1D
+      items:
+        - id: 839cb128-34bd-444d-9ffc-05903e62b35a
+          fulfillment_id: F3

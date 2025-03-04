@@ -1,0 +1,65 @@
+value:
+  context:
+    domain: ONDC:RET12
+    action: update
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: 68079e7c-0af9-4e16-a356-2e6ec708e2cb
+    message_id: 97e50758-0931-4467-b914-fc0968172e61
+    city: std:080
+    country: IND
+    timestamp: "2024-08-08T10:10:14.444Z"
+  message:
+    update_target: fulfillment
+    order:
+      id: 2024-08-08-739546
+      fulfillments:
+        - id: F3
+          tags:
+            - code: update_state
+              list:
+                - code: state
+                  value: Order-picked-up
+            - code: update_fulfillment_time
+              list:
+                - code: state
+                  value: Order-picked-up
+                - code: timestamp
+                  value: "2024-08-08T10:10:14.444Z"
+                - code: start_time
+                  value: "2024-08-08T10:09:58.799Z"
+                - code: end_time
+                  value: "2024-08-10T11:09:58.799Z"
+            - code: update_agent_details
+              list:
+                - code: name
+                  value: agent_name
+                - code: phone
+                  value: "9886098860"
+            - code: bnp_diff_weight
+              list:
+                - code: unit
+                  value: kilogram
+                - code: value
+                  value: "1.5"
+            - code: bnp_diff_length
+              list:
+                - code: unit
+                  value: centimeter
+                - code: value
+                  value: "1.5"
+            - code: bnp_diff_breadth
+              list:
+                - code: unit
+                  value: centimeter
+                - code: value
+                  value: "1.5"
+            - code: bnp_diff_height
+              list:
+                - code: unit
+                  value: centimeter
+                - code: value
+                  value: "1.5"

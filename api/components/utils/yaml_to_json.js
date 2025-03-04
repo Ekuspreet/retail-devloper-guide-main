@@ -1,34 +1,23 @@
-//yaml to json script 
-
 const fs = require("fs");
 const path = require("path");
 const yaml = require("js-yaml");
-const { log } = require("console");
 
 // Define the root directory where your YAML files are located
-const rootDirectory = path.join(
-  __dirname,
-  "../Examples/Services_Work_Opportunities_yaml"
-);
+const rootDirectory = path.join(__dirname, "../examples/retailFlows");
 
-// Function to convert a YAML file to JSON
+// Function to convert a YAML file to JSON and delete the original YAML file
 function convertYamlToJson(yamlFilePath, jsonFilePath) {
   try {
-    // Read the YAML file
     const yamlContent = fs.readFileSync(yamlFilePath, "utf8");
-
-    // Parse the YAML content to a JavaScript object
     const yamlObject = yaml.load(yamlContent);
-
-    // Convert the JavaScript object to JSON
     const jsonContent = JSON.stringify(yamlObject, null, 2);
-
-    // Write the JSON content to a file
+    
     fs.writeFileSync(jsonFilePath, jsonContent, "utf8");
+    fs.unlinkSync(yamlFilePath); // Delete the YAML file after conversion
 
-    console.log(`Converted ${yamlFilePath} to ${jsonFilePath}`);
+    console.log(`Converted and deleted: ${yamlFilePath} → ${jsonFilePath}`);
   } catch (err) {
-    console.error(`Error converting ${yamlFilePath}:`, err);
+    console.error(`Error processing ${yamlFilePath}:`, err);
   }
 }
 
@@ -40,10 +29,8 @@ function processDirectory(directoryPath) {
     const filePath = path.join(directoryPath, file);
 
     if (fs.statSync(filePath).isDirectory()) {
-      // If it's a directory, process it recursively
-      processDirectory(filePath);
-    } else if (path.extname(file).toLowerCase() === ".yaml" || path.extname(file).toLowerCase() === ".yml") {
-      // If it's a YAML file, convert it to JSON
+      processDirectory(filePath); // Recurse into subdirectories
+    } else if ([".yaml", ".yml"].includes(path.extname(file).toLowerCase())) {
       const jsonFilePath = path.join(
         directoryPath,
         path.basename(file, path.extname(file)) + ".json"
@@ -55,4 +42,3 @@ function processDirectory(directoryPath) {
 
 // Start processing the root directory
 processDirectory(rootDirectory);
-

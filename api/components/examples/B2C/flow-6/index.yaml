@@ -61,10 +61,10 @@ update:
       $ref: ./10_update_settlement_part_cancel.yaml
     update - settlement reverse QC:
       $ref: ./20_update_settlement_reverse_qc.yaml
-    update - settlement liquidated:
-      $ref: ./25_update_settlement_liquidated.yaml
     update - reverse QC:
       $ref: ./16_update_reverse_qc.yaml
+    update - settlement liquidated:
+      $ref: ./25_update_settlement_liquidated.yaml
     update - liquidated:
       $ref: ./22_update_liquidated.yaml
 

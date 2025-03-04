@@ -10,7 +10,7 @@ value:
     bpp_uri: https://sellerNP.com/ondc
     transaction_id: 0a6488ba-3b21-4405-a9b9-820ddff29dac
     message_id: f947461a-6b6d-4a11-8452-d411d53789bf
-    timestamp: '2024-11-15T06:03:28.082Z'
+    timestamp: "2024-11-15T06:03:28.082Z"
     bpp_id: sellerNP.com
     ttl: PT30S
   message:
@@ -83,7 +83,7 @@ value:
               list:
                 - code: type
                   value: item
-          parent_item_id: ShxCIU+v5vYa
+          parent_item_id: RNO0lGOd4WSx
         - fulfillment_id: a48b0756-c7fe-469a-bf52-946529b5b2ba
           id: C1
           tags:
@@ -95,7 +95,7 @@ value:
               list:
                 - code: id
                   value: CG1
-          parent_item_id: ShxCIU+v5vYa
+          parent_item_id: RNO0lGOd4WSx
         - fulfillment_id: a48b0756-c7fe-469a-bf52-946529b5b2ba
           id: C4
           tags:
@@ -107,7 +107,7 @@ value:
               list:
                 - code: id
                   value: CG2
-          parent_item_id: ShxCIU+v5vYa
+          parent_item_id: RNO0lGOd4WSx
         - fulfillment_id: a48b0756-c7fe-469a-bf52-946529b5b2ba
           id: C12
           tags:
@@ -119,7 +119,7 @@ value:
               list:
                 - code: id
                   value: CG5
-          parent_item_id: ShxCIU+v5vYa
+          parent_item_id: RNO0lGOd4WSx
         - fulfillment_id: a48b0756-c7fe-469a-bf52-946529b5b2ba
           id: C13
           tags:
@@ -131,51 +131,51 @@ value:
               list:
                 - code: id
                   value: CG5
-          parent_item_id: ShxCIU+v5vYa
+          parent_item_id: RNO0lGOd4WSx
       fulfillments:
         - id: a48b0756-c7fe-469a-bf52-946529b5b2ba
           type: Delivery
-          '@ondc/org/provider_name': Store 1
+          "@ondc/org/provider_name": Store 1
           tracking: true
-          '@ondc/org/category': Immediate Delivery
-          '@ondc/org/TAT': PT60M
+          "@ondc/org/category": Immediate Delivery
+          "@ondc/org/TAT": PT60M
           state:
             descriptor:
               code: Serviceable
       quote:
         price:
           currency: INR
-          value: '3257.65'
+          value: "3257.65"
         breakup:
-          - '@ondc/org/item_id': 7a1eb7d6-c522-5a69-936d-b9ebbaf88869
-            '@ondc/org/item_quantity':
+          - "@ondc/org/item_id": 7a1eb7d6-c522-5a69-936d-b9ebbaf88869
+            "@ondc/org/item_quantity":
               count: 2
             title: Farm House Pizza
-            '@ondc/org/title_type': item
+            "@ondc/org/title_type": item
             price:
               currency: INR
-              value: '538'
+              value: "538"
             item:
               quantity:
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: INR
-                value: '269'
+                value: "269"
               tags:
                 - code: type
                   list:
                     - code: type
                       value: item
               parent_item_id: OYOYEigae6Av
-          - '@ondc/org/item_id': 7a1eb7d6-c522-5a69-936d-b9ebbaf88869
+          - "@ondc/org/item_id": 7a1eb7d6-c522-5a69-936d-b9ebbaf88869
             title: Tax
-            '@ondc/org/title_type': tax
+            "@ondc/org/title_type": tax
             price:
               currency: INR
-              value: '13.45'
+              value: "13.45"
             item:
               parent_item_id: OYOYEigae6Av
               tags:
@@ -183,23 +183,23 @@ value:
                   list:
                     - code: type
                       value: item
-          - '@ondc/org/item_id': C2
-            '@ondc/org/item_quantity':
+          - "@ondc/org/item_id": C2
+            "@ondc/org/item_quantity":
               count: 2
             title: 100% Wheat Thin Crust
-            '@ondc/org/title_type': item
+            "@ondc/org/title_type": item
             price:
               currency: INR
-              value: '0'
+              value: "0"
             item:
               quantity:
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: INR
-                value: '0'
+                value: "0"
               tags:
                 - code: type
                   list:
@@ -210,12 +210,12 @@ value:
                     - code: id
                       value: CG1
               parent_item_id: OYOYEigae6Av
-          - '@ondc/org/item_id': C2
+          - "@ondc/org/item_id": C2
             title: Tax
-            '@ondc/org/title_type': tax
+            "@ondc/org/title_type": tax
             price:
               currency: INR
-              value: '0.00'
+              value: "0.00"
             item:
               parent_item_id: OYOYEigae6Av
               tags:
@@ -227,23 +227,23 @@ value:
                   list:
                     - code: id
                       value: CG1
-          - '@ondc/org/item_id': C7
-            '@ondc/org/item_quantity':
+          - "@ondc/org/item_id": C7
+            "@ondc/org/item_quantity":
               count: 2
             title: Medium
-            '@ondc/org/title_type': item
+            "@ondc/org/title_type": item
             price:
               currency: INR
-              value: '550'
+              value: "550"
             item:
               quantity:
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: INR
-                value: '275'
+                value: "275"
               tags:
                 - code: type
                   list:
@@ -254,12 +254,12 @@ value:
                     - code: id
                       value: CG3
               parent_item_id: OYOYEigae6Av
-          - '@ondc/org/item_id': C7
+          - "@ondc/org/item_id": C7
             title: Tax
-            '@ondc/org/title_type': tax
+            "@ondc/org/title_type": tax
             price:
               currency: INR
-              value: '20.50'
+              value: "20.50"
             item:
               parent_item_id: OYOYEigae6Av
               tags:
@@ -271,23 +271,23 @@ value:
                   list:
                     - code: id
                       value: CG3
-          - '@ondc/org/item_id': C14
-            '@ondc/org/item_quantity':
+          - "@ondc/org/item_id": C14
+            "@ondc/org/item_quantity":
               count: 2
             title: Grilled Mushroom
-            '@ondc/org/title_type': item
+            "@ondc/org/title_type": item
             price:
               currency: INR
-              value: '120'
+              value: "120"
             item:
               quantity:
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: INR
-                value: '60'
+                value: "60"
               tags:
                 - code: type
                   list:
@@ -298,12 +298,12 @@ value:
                     - code: id
                       value: CG6
               parent_item_id: OYOYEigae6Av
-          - '@ondc/org/item_id': C14
+          - "@ondc/org/item_id": C14
             title: Tax
-            '@ondc/org/title_type': tax
+            "@ondc/org/title_type": tax
             price:
               currency: INR
-              value: '4.00'
+              value: "4.00"
             item:
               parent_item_id: OYOYEigae6Av
               tags:
@@ -315,23 +315,23 @@ value:
                   list:
                     - code: id
                       value: CG6
-          - '@ondc/org/item_id': C16
-            '@ondc/org/item_quantity':
+          - "@ondc/org/item_id": C16
+            "@ondc/org/item_quantity":
               count: 2
             title: Pepper Barbeque Chicken
-            '@ondc/org/title_type': item
+            "@ondc/org/title_type": item
             price:
               currency: INR
-              value: '150'
+              value: "150"
             item:
               quantity:
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: INR
-                value: '75'
+                value: "75"
               tags:
                 - code: type
                   list:
@@ -342,12 +342,12 @@ value:
                     - code: id
                       value: CG6
               parent_item_id: OYOYEigae6Av
-          - '@ondc/org/item_id': C16
+          - "@ondc/org/item_id": C16
             title: Tax
-            '@ondc/org/title_type': tax
+            "@ondc/org/title_type": tax
             price:
               currency: INR
-              value: '4.75'
+              value: "4.75"
             item:
               parent_item_id: OYOYEigae6Av
               tags:
@@ -359,59 +359,59 @@ value:
                   list:
                     - code: id
                       value: CG6
-          - '@ondc/org/item_id': 7a1eb7d6-c522-5a69-936d-b9ebbaf88869
-            '@ondc/org/item_quantity':
+          - "@ondc/org/item_id": 7a1eb7d6-c522-5a69-936d-b9ebbaf88869
+            "@ondc/org/item_quantity":
               count: 2
             title: Farm House Pizza
-            '@ondc/org/title_type': item
+            "@ondc/org/title_type": item
             price:
               currency: INR
-              value: '538'
+              value: "538"
             item:
               quantity:
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: INR
-                value: '269'
+                value: "269"
               tags:
                 - code: type
                   list:
                     - code: type
                       value: item
-              parent_item_id: ShxCIU+v5vYa
-          - '@ondc/org/item_id': 7a1eb7d6-c522-5a69-936d-b9ebbaf88869
+              parent_item_id: RNO0lGOd4WSx
+          - "@ondc/org/item_id": 7a1eb7d6-c522-5a69-936d-b9ebbaf88869
             title: Tax
-            '@ondc/org/title_type': tax
+            "@ondc/org/title_type": tax
             price:
               currency: INR
-              value: '13.45'
+              value: "13.45"
             item:
-              parent_item_id: ShxCIU+v5vYa
+              parent_item_id: RNO0lGOd4WSx
               tags:
                 - code: type
                   list:
                     - code: type
                       value: item
-          - '@ondc/org/item_id': C1
-            '@ondc/org/item_quantity':
+          - "@ondc/org/item_id": C1
+            "@ondc/org/item_quantity":
               count: 2
             title: New Hand Tossed
-            '@ondc/org/title_type': item
+            "@ondc/org/title_type": item
             price:
               currency: INR
-              value: '0'
+              value: "0"
             item:
               quantity:
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: INR
-                value: '0'
+                value: "0"
               tags:
                 - code: type
                   list:
@@ -421,15 +421,15 @@ value:
                   list:
                     - code: id
                       value: CG1
-              parent_item_id: ShxCIU+v5vYa
-          - '@ondc/org/item_id': C1
+              parent_item_id: RNO0lGOd4WSx
+          - "@ondc/org/item_id": C1
             title: Tax
-            '@ondc/org/title_type': tax
+            "@ondc/org/title_type": tax
             price:
               currency: INR
-              value: '0.00'
+              value: "0.00"
             item:
-              parent_item_id: ShxCIU+v5vYa
+              parent_item_id: RNO0lGOd4WSx
               tags:
                 - code: type
                   list:
@@ -439,23 +439,23 @@ value:
                   list:
                     - code: id
                       value: CG1
-          - '@ondc/org/item_id': C4
-            '@ondc/org/item_quantity':
+          - "@ondc/org/item_id": C4
+            "@ondc/org/item_quantity":
               count: 2
             title: Large
-            '@ondc/org/title_type': item
+            "@ondc/org/title_type": item
             price:
               currency: INR
-              value: '900'
+              value: "900"
             item:
               quantity:
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: INR
-                value: '450'
+                value: "450"
               tags:
                 - code: type
                   list:
@@ -465,15 +465,15 @@ value:
                   list:
                     - code: id
                       value: CG2
-              parent_item_id: ShxCIU+v5vYa
-          - '@ondc/org/item_id': C4
+              parent_item_id: RNO0lGOd4WSx
+          - "@ondc/org/item_id": C4
             title: Tax
-            '@ondc/org/title_type': tax
+            "@ondc/org/title_type": tax
             price:
               currency: INR
-              value: '8.50'
+              value: "8.50"
             item:
-              parent_item_id: ShxCIU+v5vYa
+              parent_item_id: RNO0lGOd4WSx
               tags:
                 - code: type
                   list:
@@ -483,23 +483,23 @@ value:
                   list:
                     - code: id
                       value: CG2
-          - '@ondc/org/item_id': C12
-            '@ondc/org/item_quantity':
+          - "@ondc/org/item_id": C12
+            "@ondc/org/item_quantity":
               count: 2
             title: Fresh Tomato
-            '@ondc/org/title_type': item
+            "@ondc/org/title_type": item
             price:
               currency: INR
-              value: '160'
+              value: "160"
             item:
               quantity:
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: INR
-                value: '80'
+                value: "80"
               tags:
                 - code: type
                   list:
@@ -509,15 +509,15 @@ value:
                   list:
                     - code: id
                       value: CG5
-              parent_item_id: ShxCIU+v5vYa
-          - '@ondc/org/item_id': C12
+              parent_item_id: RNO0lGOd4WSx
+          - "@ondc/org/item_id": C12
             title: Tax
-            '@ondc/org/title_type': tax
+            "@ondc/org/title_type": tax
             price:
               currency: INR
-              value: '3.00'
+              value: "3.00"
             item:
-              parent_item_id: ShxCIU+v5vYa
+              parent_item_id: RNO0lGOd4WSx
               tags:
                 - code: type
                   list:
@@ -527,23 +527,23 @@ value:
                   list:
                     - code: id
                       value: CG5
-          - '@ondc/org/item_id': C13
-            '@ondc/org/item_quantity':
+          - "@ondc/org/item_id": C13
+            "@ondc/org/item_quantity":
               count: 2
             title: Pepper Barbeque
-            '@ondc/org/title_type': item
+            "@ondc/org/title_type": item
             price:
               currency: INR
-              value: '190'
+              value: "190"
             item:
               quantity:
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: INR
-                value: '95'
+                value: "95"
               tags:
                 - code: type
                   list:
@@ -553,15 +553,15 @@ value:
                   list:
                     - code: id
                       value: CG5
-              parent_item_id: ShxCIU+v5vYa
-          - '@ondc/org/item_id': C13
+              parent_item_id: RNO0lGOd4WSx
+          - "@ondc/org/item_id": C13
             title: Tax
-            '@ondc/org/title_type': tax
+            "@ondc/org/title_type": tax
             price:
               currency: INR
-              value: '4.00'
+              value: "4.00"
             item:
-              parent_item_id: ShxCIU+v5vYa
+              parent_item_id: RNO0lGOd4WSx
               tags:
                 - code: type
                   list:
@@ -571,22 +571,22 @@ value:
                   list:
                     - code: id
                       value: CG5
-          - '@ondc/org/item_id': a48b0756-c7fe-469a-bf52-946529b5b2ba
+          - "@ondc/org/item_id": a48b0756-c7fe-469a-bf52-946529b5b2ba
             title: Packing charges
-            '@ondc/org/title_type': packing
+            "@ondc/org/title_type": packing
             price:
               currency: INR
-              value: '10'
-          - '@ondc/org/item_id': a48b0756-c7fe-469a-bf52-946529b5b2ba
+              value: "10"
+          - "@ondc/org/item_id": a48b0756-c7fe-469a-bf52-946529b5b2ba
             title: Delivery charges
-            '@ondc/org/title_type': delivery
+            "@ondc/org/title_type": delivery
             price:
               currency: INR
-              value: '20'
-          - '@ondc/org/item_id': a48b0756-c7fe-469a-bf52-946529b5b2ba
+              value: "20"
+          - "@ondc/org/item_id": a48b0756-c7fe-469a-bf52-946529b5b2ba
             title: Convenience Fee
-            '@ondc/org/title_type': misc
+            "@ondc/org/title_type": misc
             price:
               currency: INR
-              value: '10'
+              value: "10"
         ttl: P1D

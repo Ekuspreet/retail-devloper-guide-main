@@ -4,6 +4,20 @@ search:
       $ref: ./01_search_full_catalog_refresh.yaml
     search - incremental refresh:
       $ref: ./03_search_inc_refresh.yaml
+    search - by city:
+      $ref: ../../B2C-Scenarios/search/01_search_by_city.yaml
+    search - by fulfillment:
+      $ref: ../../B2C-Scenarios/search/02_search_by_fulfillment.yaml
+    search - by item:
+      $ref: ../../B2C-Scenarios/search/03_search_by_item.yaml
+    search - request incremental push:
+      $ref: ../../B2C-Scenarios/search/04_search_request_inc_push.yaml
+    search - request incremental:
+      $ref: ../../B2C-Scenarios/search/05_search_request_inc.yaml
+    search - response as a downloadable link:
+      $ref: ../../B2C-Scenarios/search/06_search_response_as_a_downloadable_link.yaml
+    search - request stop incremental:
+      $ref: ../../B2C-Scenarios/search/07_search_request_stop_inc.yaml
 
 on_search:
   examples:
@@ -11,3 +25,17 @@ on_search:
       $ref: ./02_on_search_full_catalog_refresh.yaml
     on_search - on incremental refresh:
       $ref: ./04_on_search_inc_refresh.yaml
+    on_search - Item changes:
+      $ref: ../../B2C-Scenarios/on_search/02_on_search_inc_Item_changes.yaml
+    on_search - Provider disabling:
+      $ref: ../../B2C-Scenarios/on_search/03_on_search_inc_provider_disabling.yaml
+    on_search - Store closed temporarily:
+      $ref: ../../B2C-Scenarios/on_search/04_on_search_inc_store_closed_temp.yaml
+    on_search - Store reopen:
+      $ref: ../../B2C-Scenarios/on_search/05_on_search_inc_store_reopen.yaml
+    on_search - As a downloadable link:
+      $ref: ../../B2C-Scenarios/on_search/06_on_search_as_a_downloadable_link.yaml
+    on_search - Offers:
+      $ref: ../../B2C-Scenarios/on_search/07_on_search_inc_offers.yaml
+    on_search - Electronics BPP collecting:
+      $ref: ../../B2C-Scenarios/on_search/08_on_search_electronics_bpp_collecting.yaml

@@ -220,6 +220,24 @@ order:
         required: optional
         list:
           $ref: "./tag.yaml#/return_request"
+      - code: IGM_REQUEST
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        required: optional
+        list:
+          $ref: "./tag.yaml#/igm_request"
+      - code: ROUTING
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        required: optional
+        list:
+          $ref: "./tag.yaml#/routing"
+      - code: TRACKING
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        required: optional
+        list:
+          $ref: "./tag.yaml#/tracking"
   quote:
     tags:
       - code: TYPE
@@ -243,3 +261,44 @@ tracking:
       required: required
       list:
         $ref: "./tag.yaml#/path"
+bpp_descriptor:
+  tags:
+    - code: BPP_TERMS
+      description: Description about the tags
+      reference: <PR/Issue/Discussion Links md format text>
+      required: required
+      list:
+        - code: NP_TYPE
+          description: Allowed Values - [ISN, MSN]
+          reference: <PR/Issue/Discussion Links md format text>
+bpp_providers:
+  tags:
+    - code: TYPE
+      description: Description about the tags
+      reference: <PR/Issue/Discussion Links md format text>
+      required: required
+      list:
+        - code: TYPE
+          description: Allowed Values - [variant_group, custom_group, custom_menu]
+          reference: <PR/Issue/Discussion Links md format text>
+
+order_confirm_fulfillments:
+  tags:
+    - code: IGM_REQUEST
+      description: Description about the tags
+      reference: <PR/Issue/Discussion Links md format text>
+      required: optional
+      list:
+        $ref: "./tag.yaml#/igm_request"
+    - code: ROUTING
+      description: Description about the tags
+      reference: <PR/Issue/Discussion Links md format text>
+      required: optional
+      list:
+        $ref: "./tag.yaml#/routing"
+    - code: TRACKING
+      description: Description about the tags
+      reference: <PR/Issue/Discussion Links md format text>
+      required: optional
+      list:
+        $ref: "./tag.yaml#/tracking"

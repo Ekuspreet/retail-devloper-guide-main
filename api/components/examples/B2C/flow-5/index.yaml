@@ -48,11 +48,10 @@ on_status:
       $ref: ./11_on_status_picked.yaml
     on_status - out for delivery:
       $ref: ./12_on_status_out_for_delivery.yaml
-    on_cancel:
-      $ref: ./13_on_cancel.yaml
     on_status - RTO delivered:
       $ref: ./14_on_status_rto_delivered.yaml
 
-# on_cancel:
-#   examples:
-    
+on_cancel:
+  examples:
+    on_cancel:
+      $ref: ./13_on_cancel.yaml

@@ -1,5 +1,5 @@
-summary: Retail 1.2.0 (flow - 6)
-description: Retail platforms connect buyers and sellers for smooth transactions. Search and on_search handle catalog retrieval, select and on_select manage item selection, and init and on_init confirm agreements. Confirm and on_confirm process orders, on_status provides real-time updates, and track and on_track enable live tracking.
+summary: Retail 1.2.0 (Part Cancellation, Reverse Qc and Liquidation)
+description: The Post-Order Management Flow in ONDC covers Partial Cancellation, Liquidation, and Reverse QC, ensuring seamless handling of cancellations, returns, and settlements. The Seller NP may cancel specific items before fulfillment (on_update_part_cancel), adjusting payments while fulfilling the rest. For returns, the Seller NP either liquidates the item (on_update_liquidated) or conducts a quality check (update_reverse_qc, on_update_interim_reverse_qc). If approved (on_update_approval), the item is picked up (on_update_picked), settled (update_settlement_reverse_qc), and returned to the seller (on_update_delivered). Settlement details are carried forward across processes for accurate reconciliation.
 details:
   - description: Buyer Search & Quotation
     mermaidGraph: >-
@@ -28,47 +28,193 @@ details:
         
         B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms order
         B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts order
-  - description: Status updates till Product Delivery
+        
+  - description: Part Cancellation and Product Delivery
     mermaidGraph: >-
       sequenceDiagram
-
         participant B2C BAP
         participant B2C BPP
-        
-        B2C BAP ->> B2C BPP: **/status** - Buyer requests for a Status update
 
-        B2C BPP ->> B2C BAP: /on_status - Status Updates - Order Packed
-        B2C BPP ->> B2C BAP: /on_status - Status Updates - Agent Assigned
-        B2C BPP ->> B2C BAP: /on_status - Status Updates - Order Picked Up
-        B2C BPP ->> B2C BAP: /on_status - Status Updates - Out for Delivery
-        B2C BPP ->> B2C BAP: /on_status - Status Updates - Order Delivered
-        B2C BPP ->> B2C BAP: /track - Tracking Initiated
-        B2C BPP ->> B2C BAP: /on_track - Real-time Tracking Updates
+        B2C BPP ->> B2C BAP: **/on_update** - Order Update - Part Cancel
+        B2C BAP ->> B2C BPP: **/update** - Settlement for Part Cancel
 
-  - description: Status updates till Product Delivery
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Packed
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Picked Up
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Out for Delivery
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Delivered
+
+  - description: Return reverseQc
     mermaidGraph: >-
       sequenceDiagram
-        participant Buyer NP
-        participant Seller NP
+        participant B2C BAP
+        participant B2C BPP
 
-        %% Pre-order APIs
-        Buyer NP->>Seller NP: **/search** - Specifies search intent
-        Seller NP->>Buyer NP: **/on_search** - Responds with catalog
-        Buyer NP->>Seller NP: **/select** - Specifies selected items & quantity
-        Seller NP->>Buyer NP: **/on_select** - Responds with serviceability info, quote & O2D TAT
-        Buyer NP->>Seller NP: **/init** - Specifies order terms & conditions
-        Seller NP->>Buyer NP: **/on_init** - Agrees to terms & conditions
-        Buyer NP->>Seller NP: **/confirm** - Places order on behalf of buyer
-        Seller NP->>Buyer NP: **/on_confirm** - Responds with acceptance or rejection
+        B2C BAP ->> B2C BPP: **/update** - reverse qc - Return request from BAP
+        B2C BPP ->> B2C BAP: **/on_update** - interim reverse qc - Return initiate request from BPP
+        B2C BPP ->> B2C BAP: **/on_update** - approval - BPP approves return request
+        B2C BPP ->> B2C BAP: **/on_update** - picked - Order picked up confirmation
+        B2C BAP ->> B2C BPP: **/update** - reverse qc settlement - Settlement update
+        B2C BPP ->> B2C BAP: **/on_update** - return delivered - Order return delivered confirmation
+          
+  - description: Liquidation
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B2C BAP
+        participant B2C BPP
 
-        %% Post-order APIs
-        Buyer NP->>Seller NP: **/status** - Requests order status
-        Seller NP->>Buyer NP: **/on_status** - Provides current order status
-        Buyer NP->>Seller NP: **/cancel** - Places cancellation request
-        Seller NP->>Buyer NP: **/on_cancel** - Responds to cancellation request
-        Buyer NP->>Seller NP: **/update** - Initiates part return/cancel request
-        Seller NP->>Buyer NP: **/on_update** - Responds to part return/cancel request
-        Buyer NP->>Seller NP: **/track** - Requests live tracking
-        Seller NP->>Buyer NP: **/on_track** - Provides live tracking details
+        B2C BAP ->> B2C BPP: **/update** - liquidated - Return request from BAP
+        B2C BPP ->> B2C BAP: **/on_update** - interim liquidated - Return initiate request from BPP
+        B2C BPP ->> B2C BAP: **/on_update** - liquidated - BPP approves return request and liquidates items
+        B2C BAP ->> B2C BPP: **/update** - liquidated settlement - Settlement update
 
 reference: if any
+steps:
+  - summary: BAP sends the search request
+    api: search
+    description: BAP sends the search request
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/01_search_full_catalog_refresh.yaml"
+  - summary: BPP returns the full catalog refresh
+    api: on_search
+    description: BPP returns the full catalog refresh
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/02_on_search_full_catalog_refresh.yaml"
+  - summary: BAP select the item
+    api: select
+    description: BAP select the item
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/03_select.yaml"
+  - summary: BPP returns item breakup when item is in stock and offer applied (if any)
+    api: on_select
+    description: BPP returns item breakup when item is in stock and offer applied (if any)
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/04_on_select.yaml"
+  - summary: Buyer initiate the product and send the updated fulfillment id
+    api: init
+    description: Buyer initiate the product and send the updated fulfillment id
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/05_init.yaml"
+  - summary: Respond to init
+    api: on_init
+    description: Respond to init
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/06_on_init.yaml"
+  - summary: Buyer confirms product
+    api: confirm
+    description: Buyer confirms product
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/07_confirm.yaml"
+  - summary: Seller Accepts confirmation
+    api: on_confirm
+    description: Seller Accepts confirmation
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/08_on_confirm.yaml"
+  - summary: Seller Side Part Cancellation
+    api: on_update - part cancel
+    description: Seller Side Part Cancellation
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/09_on_update_part_cancel.yaml"
+  - summary: Update Settlement - part cancel
+    api: update - part cancel settlement
+    description: Update Settlement - part cancel
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/10_update_settlement_part_cancel.yaml"
+
+  - summary: Status updates - order pending
+    api: on_status - pending
+    description: Status updates - order pending
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/11_on_status_pending.yaml"
+  - summary: Status updates - order packed
+    api: on_status - packed
+    description: Status updates - order packed
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/12_on_status_packed.yaml"
+  - summary: Status updates - order picked up
+    api: on_status - picked
+    description: Status updates - order picked up
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/13_on_status_picked.yaml"
+  - summary: Status updates - order out for delivery
+    api: on_status - out_for_delivery
+    description: Status updates - order out for delivery
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/14_on_status_out_for_delivery.yaml"
+  - summary: Status updates - order delivered
+    api: on_status - order_delivered
+    description: Status updates - order delivered
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/15_on_status_delivered.yaml"
+  - summary: BAP request to return the items
+    api: update - reverse qc
+    description: BAP request to return the items
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/16_update_reverse_qc.yaml"
+  - summary: BPP sends the return initiate request
+    api: on_update - interim reverse qc
+    description: BPP sends the return initiate request
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/17_on_update_interim_reverse_qc.yaml"
+  - summary: BPP approves return request
+    api: on_update - approval
+    description: BPP approves return request
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/18_on_update_approval.yaml"
+  - summary: BPP sends the request that order picked up
+    api: on_update - picked
+    description: BPP sends the request that order picked up
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/19_on_update_picked.yaml"
+  - summary: Update Settlement - reverse qc
+    api: update - reverse qc settlement
+    description: Update Settlement - reverse qc
+    example:
+      $ref: "../../examples/B2C/flow-6/20_update_settlement_reverse_qc.yaml"
+  - summary: BPP sends the request that order picked up
+    api: on_update - return delivered
+    description: BPP sends the request that order is delivered
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/21_on_update_delivered.yaml"
+  - summary: BAP request to return the items
+    api: update - liquidated
+    description: BAP request to return the items
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/22_update_liquidated.yaml"
+  - summary: BPP sends the return initiate request
+    api: on_update - interim liquidated
+    description: BPP sends the return initiate request
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/23_on_update_interim_liquidated.yaml"
+  - summary: BPP approves return request
+    api: on_update - liquidated
+    description: BPP approves return request and liquidate the items
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/flow-6/24_on_update_liquidated.yaml"
+  - summary: Update Settlement - liquidated
+    api: update - liquidated settlement
+    description: Update Settlement - liquidated
+    example:
+      $ref: "../../examples/B2C/flow-6/25_update_settlement_liquidated.yaml"

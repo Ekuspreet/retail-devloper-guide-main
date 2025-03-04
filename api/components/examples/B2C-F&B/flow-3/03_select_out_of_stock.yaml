@@ -10,7 +10,7 @@ value:
     bpp_uri: https://sellerNP.com/ondc
     transaction_id: b01ebd1a-c343-4c17-9b82-111ba527a8b8
     message_id: 104c9501-3c9b-4756-ab4b-d8dad8251125
-    timestamp: '2024-11-15T05:57:45.304Z'
+    timestamp: "2024-11-15T05:57:45.304Z"
     bpp_id: sellerNP.com
     ttl: PT30S
   message:
@@ -25,7 +25,7 @@ value:
               list:
                 - code: type
                   value: item
-          parent_item_id: ShxCIU+v5vYa
+          parent_item_id: RNO0lGOd4WSx
         - id: C1
           quantity:
             count: 2
@@ -39,7 +39,7 @@ value:
               list:
                 - code: id
                   value: CG1
-          parent_item_id: ShxCIU+v5vYa
+          parent_item_id: RNO0lGOd4WSx
         - id: C4
           quantity:
             count: 2
@@ -53,7 +53,7 @@ value:
               list:
                 - code: id
                   value: CG2
-          parent_item_id: ShxCIU+v5vYa
+          parent_item_id: RNO0lGOd4WSx
         - id: C12
           quantity:
             count: 2
@@ -67,7 +67,7 @@ value:
               list:
                 - code: id
                   value: CG5
-          parent_item_id: ShxCIU+v5vYa
+          parent_item_id: RNO0lGOd4WSx
         - id: C13
           quantity:
             count: 2
@@ -81,7 +81,7 @@ value:
               list:
                 - code: id
                   value: CG5
-          parent_item_id: ShxCIU+v5vYa
+          parent_item_id: RNO0lGOd4WSx
         - id: 7a1eb7d6-c522-5a69-936d-b9ebbaf88869
           quantity:
             count: 2
@@ -157,4 +157,4 @@ value:
             location:
               gps: 28.621295,77.385178
               address:
-                area_code: '201301'
+                area_code: "201301"

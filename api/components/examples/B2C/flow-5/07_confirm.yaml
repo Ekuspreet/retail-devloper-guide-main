@@ -7,7 +7,7 @@ value:
     core_version: 1.2.0
     bap_id: buyerNP.com
     bap_uri: https://buyerNP.com/ondc
-    bpp_uri: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
     transaction_id: 68079e7c-0af9-4e16-a356-2e6ec708e2cb
     message_id: 6f9fa4e2-1487-4af4-b4ef-a9ea0957d648
     timestamp: "2024-08-08T10:01:50.601Z"

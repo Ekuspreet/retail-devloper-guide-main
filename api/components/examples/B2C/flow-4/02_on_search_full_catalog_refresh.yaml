@@ -11,7 +11,7 @@ value:
     message_id: e5613b45-9e29-42ee-8dab-7e9a2de12eac
     timestamp: "2024-08-07T12:06:35.975Z"
     bpp_id: sellerNP.com
-    bpp_uri: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
   message:
     catalog:
       bpp/fulfillments:

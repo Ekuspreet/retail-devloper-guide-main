@@ -1,7 +1,7 @@
 B2C - Discovery phase:
   summary: B2C flow-1 Use Case Specification
   description: >-
-    Retail networks facilitate product and service offerings by connecting buyers and sellers. Consumer platforms use APIs for key e-commerce operations, such as searching and retrieving inventory from providers. The search and on_search APIs support full or incremental catalog refreshes.
+    The Discovery Phase in ONDC enables buyers to search for products or services across the network. The Buyer NP initiates a /search request to specify the search intent (live search or catalog crawl), and the Seller NP responds with an /on_search call, providing relevant product listings based on the request.
   example_set:
     $ref: "./B2C/flow-1/index.yaml"
 
@@ -12,39 +12,108 @@ B2C - Delivery:
   example_set:
     $ref: "./B2C/flow-2/index.yaml"
 
+B2C - COD:
+  summary: B2C Cash-On-Delivery Use Case Specification
+  description: >-
+    Retail platforms enable seamless e-commerce, allowing buyers to search, select, and track products while sellers manage inventory. The search and on_search APIs retrieve catalog details, select and on_select manage item selection, and init and on_init establish agreements. Confirm and on_confirm process orders, on_status tracks progress, and track and on_track enable live tracking.
+  example_set:
+    $ref: "./B2C/cod-flow/index.yaml"
+
+B2C - Buyer Delivery:
+  summary: B2C Cash-On-Delivery Use Case Specification
+  description: >-
+    The Order Fulfillment Phase in ONDC involves item selection, order confirmation, and tracking. The Buyer Network Participant (Buyer NP) selects items using the /select API, and the Seller Network Participant (Seller NP) responds with serviceability details via /on_select. Both parties finalize terms using /init, and the Seller NP acknowledges it with /on_init. Once finalized, the Buyer NP places the order via /confirm, and the Seller NP either accepts, defers, or rejects the order using /on_confirm. After order placement, the Seller NP provides unsolicited status updates through /on_status until the order is packed. From this point, the Buyer NP takes over by providing solicited updates using /update until the order is delivered, while the Seller NP acknowledges these updates through /on_update.
+  example_set:
+    $ref: "./B2C/buyer-delivery/index.yaml"
+
+B2C - Slotted Delivery:
+  summary: B2C Slotted-Delivery Use Case Specification
+  description: >-
+    The ONDC Order Fulfillment Phase includes item selection, order confirmation and so on. The Buyer NP selects items (/select), and the Seller NP responds with serviceability details (/on_select) and slotted delivery options. During initialization (/init), the Buyer NP selects the desired slot before proceeding with the order (/on_init). Once finalized, the order is placed (/confirm), and the Seller NP accepts, defers, or rejects it (/on_confirm).
+  example_set:
+    $ref: "./B2C/slotted-delivery/index.yaml"
+
+B2C - Payment Successfully Collected and Updated:
+  summary: B2C Payment Successfully Collected and Updated Use Case Specification
+  description: >-
+    The buyer completes the payment, and the SNP successfully updates the payment status to "PAID" along with transaction details (currency, amount, and transaction ID). The SNP confirms successful collection using payment.tags.bpp_collect.success="Y" in the unsolicited on_init call, allowing the BNP to proceed with /confirm without issues.
+  example_set:
+    $ref: "./B2C/bpp-collect-flow/bpp_collect_successful-payment_updated/index.yaml"
+
+B2C - Payment Collected but Status Not Updated:
+  summary: B2C Payment Collected but Status Not Updated Use Case Specification
+  description: >-
+    The buyer makes the payment, but the SNP is unable to update the payment status immediately. The SNP still marks collection success (bpp_collect.success="Y") but keeps payment.status="NOT-PAID". The BNP can choose to either terminate the transaction or proceed with /confirm, trusting that the SNP will update the status later.If BNP proceeds with /confirm, SNP should honour /confirm as per the contract and it will be the SNP’s responsibility to subsequently update payment.status when available
+  example_set:
+    $ref: "./B2C/bpp-collect-flow/bpp_collect_successful-payment_not_updated/index.yaml"
+
+B2C - Payment Collection Error:
+  summary: B2C Payment Collection Error Use Case Specification
+  description: >-
+    The buyer attempts payment, but an error occurs (e.g., payment gateway failure or timeout). The SNP marks payment.tags.bpp_collect.success="N" and includes an error message (bpp_collect.error="error_message"). Since the payment was unsuccessful, the BNP must terminate the transaction, preventing order confirmation.
+  example_set:
+    $ref: "./B2C/bpp-collect-flow/bpp_collect_error/index.yaml"
+
 B2C - Item Out-of-stock:
   summary: B2C flow-3 Use Case Specification
   description: >-
-    Retail platforms connect buyers and sellers for smooth transactions. Search and on_search handle catalog retrieval, select and on_select manage item selection, and init and on_init confirm agreements. Confirm and on_confirm process orders, on_status provides real-time updates, and track and on_track enable live tracking.
+    The Buyer NP selects multiple items (/select), and the Seller NP responds with fulfillment options and stock availability (/on_select). If an item is out of stock or partially available, the Buyer NP modifies the selection and reattempts (/select). Once finalized, both parties confirm terms (/init, /on_init), and the order is placed (/confirm, /on_confirm).  Post-order, The Seller NP provides unsolicited updates (/on_status) until delivery while the Buyer NP tracks the order (/track) and Seller NP sends the tracking detail (/on_track).
   example_set:
     $ref: "./B2C/flow-3/index.yaml"
 
 B2C - Buyer Side Cancellation:
   summary: B2C flow-4 Use Case Specification
   description: >-
-    Retail platforms enable seamless e-commerce, allowing buyers to search, select, and track products while sellers manage inventory. The search and on_search APIs retrieve catalog details, select and on_select manage item selection, and init and on_init establish agreements. Confirm and on_confirm process orders, on_status tracks progress, and track and on_track enable live tracking.
+    The Buyer-Initiated Cancellation Flow in ONDC allows buyers to cancel an order before fulfillment. The Buyer NP sends a cancellation request (/cancel), specifying the reason . The Seller NP responds with a confirmation of the cancellation (/on_cancel), the order is marked as canceled, and any applicable refunds are processed.
   example_set:
     $ref: "./B2C/flow-4/index.yaml"
 
 B2C - Seller side Cancellation:
   summary: B2C flow-5 Use Case Specification
   description: >-
-    Retail platforms connect buyers and sellers for smooth transactions. Search and on_search handle catalog retrieval, select and on_select manage item selection, and init and on_init confirm agreements. Confirm and on_confirm process orders, on_status provides real-time updates, and track and on_track enable live tracking.
+    The Seller-Initiated Cancellation Flow in ONDC allows the Seller NP or Logistics Service Provider (LSP) to cancel an order if the buyer is unavailable, etc. The Seller NP/LSP sends an unsolicited cancellation request (/on_cancel), citing the cancellation reason. The order is then marked as canceled, and any applicable refunds or reversals are processed as per the cancellation terms.
   example_set:
     $ref: "./B2C/flow-5/index.yaml"
 
 B2C - Part-cancellation/ Reverse QC/ Liquidation:
   summary: B2C flow-6 Use Case Specification
   description: >-
-    Retail platforms connect buyers and sellers for smooth transactions. Search and on_search handle catalog retrieval, select and on_select manage item selection, and init and on_init confirm agreements. Confirm and on_confirm process orders, on_status provides real-time updates, and track and on_track enable live tracking.
+    The Post-Order Management Flow in ONDC covers Partial Cancellation, Liquidation, and Reverse QC, ensuring seamless handling of cancellations, returns, and settlements. The Seller NP may cancel specific items before fulfillment (on_update_part_cancel), adjusting payments while fulfilling the rest. For returns, the Seller NP either liquidates the item (on_update_liquidated) or conducts a quality check (update_reverse_qc, on_update_interim_reverse_qc). If approved (on_update_approval), the item is picked up (on_update_picked), settled (update_settlement_reverse_qc), and returned to the seller (on_update_delivered). Settlement details are carried forward across processes for accurate reconciliation.
   example_set:
     $ref: "./B2C/flow-6/index.yaml"
 
+B2C - Part Cancellation:
+  summary: B2C flow-6a Use Case Specification
+  description: >-
+    The Partial Cancellation Flow in ONDC allows the Seller NP to cancel specific items before fulfillment while processing the rest of the order. The Buyer NP proceeds with checkout and confirms the order, after which the Seller NP updates the cancellation (on_update_part_cancel.json), adjusting payments accordingly. The remaining items move through fulfillment stages—accepted, packed, picked up, and delivered—while the Buyer NP tracks the order with real-time updates.
+  example_set:
+    $ref: "./B2C/flow-6a/index.yaml"
+
+B2C - Liquidation:
+  summary: B2C flow-6b Use Case Specification
+  description: >-
+    The Liquidation Flow in ONDC manages returns where the Seller NP opts for liquidation instead of restocking. After order placement and delivery, the Buyer NP initiates a return (/update), and the Seller NP confirms it (on_update_return_initiated.json). The Seller NP then processes liquidation (on_update_liquidated.json) and updates payment.
+  example_set:
+    $ref: "./B2C/flow-6b/index.yaml"
+
+B2C - Reverse QC:
+  summary: B2C flow-6c Use Case Specification
+  description: >-
+    The Reverse QC Flow in ONDC ensures quality checks before processing returns. After order fulfillment, the Buyer NP initiates a return (update_reverse_qc) , and the Seller NP conducts a quality check (on_update_interim_reverse_qc). If approved (on_update_approval), the item is picked up (on_update_picked) and settled by Buyer NP (update_settlement_reverse_qc) and delivered back to the seller/warehouse(on_update_delivered), ensuring a smooth return process.
+  example_set:
+    $ref: "./B2C/flow-6c/index.yaml"
+
+B2C - Offers Flow:
+  summary: B2C Offers Use Case Specification
+  description: >-
+    The Offers Flow in ONDC enables sellers to create and manage offers for their products and buyers to discover and redeem these offers.
+  example_set:
+    $ref: "./B2C/offers-flow/index.yaml"
 
 B2C - Discovery phase F&B:
   summary: B2C flow-1 Use Case Specification
   description: >-
-    Retail networks facilitate product and service offerings by connecting buyers and sellers. Consumer platforms use APIs for key e-commerce operations, such as searching and retrieving inventory from providers. The search and on_search APIs support full or incremental catalog refreshes.
+    The Discovery Phase in ONDC enables buyers to search for products or services across the network. The Buyer NP initiates a /search request to specify the search intent (live search or catalog crawl), and the Seller NP responds with an /on_search call, providing relevant product listings based on the request.
   example_set:
     $ref: "./B2C-F&B/flow-1/index.yaml"
 
@@ -58,20 +127,41 @@ B2C - Delivery F&B:
 B2C - Item Out-of-stock F&B:
   summary: B2C flow-3 Use Case Specification
   description: >-
-    Retail platforms connect buyers and sellers for smooth transactions. Search and on_search handle catalog retrieval, select and on_select manage item selection, and init and on_init confirm agreements. Confirm and on_confirm process orders, on_status provides real-time updates, and track and on_track enable live tracking.
+    The Buyer NP selects multiple items (/select), and the Seller NP responds with fulfillment options and stock availability (/on_select). If an item is out of stock or partially available, the Buyer NP modifies the selection and reattempts (/select). Once finalized, both parties confirm terms (/init, /on_init), and the order is placed (/confirm, /on_confirm).  Post-order, The Seller NP provides unsolicited updates (/on_status) until delivery while the Buyer NP tracks the order (/track) and Seller NP sends the tracking detail (/on_track).
   example_set:
     $ref: "./B2C-F&B/flow-3/index.yaml"
 
 B2C - Buyer Side Cancellation F&B:
   summary: B2C flow-4 Use Case Specification
   description: >-
-    Retail platforms enable seamless e-commerce, allowing buyers to search, select, and track products while sellers manage inventory. The search and on_search APIs retrieve catalog details, select and on_select manage item selection, and init and on_init establish agreements. Confirm and on_confirm process orders, on_status tracks progress, and track and on_track enable live tracking.
+    The Buyer-Initiated Cancellation Flow in ONDC allows buyers to cancel an order before fulfillment. The Buyer NP sends a cancellation request (/cancel), specifying the reason . The Seller NP responds with a confirmation of the cancellation (/on_cancel), the order is marked as canceled, and any applicable refunds are processed.
   example_set:
     $ref: "./B2C-F&B/flow-4/index.yaml"
 
 B2C - Seller side Cancellation F&B:
   summary: B2C flow-5 Use Case Specification
   description: >-
-    Retail platforms connect buyers and sellers for smooth transactions. Search and on_search handle catalog retrieval, select and on_select manage item selection, and init and on_init confirm agreements. Confirm and on_confirm process orders, on_status provides real-time updates, and track and on_track enable live tracking.
+    The Seller-Initiated Cancellation Flow in ONDC allows the Seller NP or Logistics Service Provider (LSP) to cancel an order if the buyer is unavailable, etc. The Seller NP/LSP sends an unsolicited cancellation request (/on_cancel), citing the cancellation reason. The order is then marked as canceled, and any applicable refunds or reversals are processed as per the cancellation terms.
   example_set:
     $ref: "./B2C-F&B/flow-5/index.yaml"
+
+B2C - Part Cancellation F&B:
+  summary: B2C flow-6a Use Case Specification
+  description: >-
+    The Partial Cancellation Flow in ONDC allows the Seller NP to cancel specific items before fulfillment while processing the rest of the order. The Buyer NP proceeds with checkout and confirms the order, after which the Seller NP updates the cancellation (on_update_part_cancel.json), adjusting payments accordingly. The remaining items move through fulfillment stages—accepted, packed, picked up, and delivered—while the Buyer NP tracks the order with real-time updates.
+  example_set:
+    $ref: "./B2C-F&B/flow-6a/index.yaml"
+
+B2C - Liquidation F&B:
+  summary: B2C flow-6b Use Case Specification
+  description: >-
+    The Liquidation Flow in ONDC manages returns where the Seller NP opts for liquidation instead of restocking. After order placement and delivery, the Buyer NP initiates a return (/update), and the Seller NP confirms it (on_update_return_initiated.json). The Seller NP then processes liquidation (on_update_liquidated.json) and updates payment.
+  example_set:
+    $ref: "./B2C-F&B/flow-6b/index.yaml"
+
+B2C - Commercial Model for BNP/SNP:
+  summary: B2C Commercial Model for BNP/SNP
+  description: >-
+    The Buyer NP (BNP) selects specific options for each item, including the convenience fee applied as a channel margin. The np_fees options are provided by the Seller NP (SNP) in the /on_select response, where they are included in the quote.breakup with a quote line item labeled title_type="misc". The BNP then selects the desired fee option for each item, which is sent as part of the /init request. In response, the SNP provides an updated quote, including the selected options, in the /on_init response. This ensures that both parties have aligned pricing details, reflecting any additional charges based on the selected fee options.
+  example_set:
+    $ref: "./B2C/commercial-flow/index.yaml"

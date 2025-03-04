@@ -10,7 +10,7 @@ value:
     bpp_uri: https://sellerNP.com/ondc
     transaction_id: b01ebd1a-c343-4c17-9b82-111ba527a8b8
     message_id: 05e77b70-3c1e-44c8-8499-e4ad109496bf
-    timestamp: '2024-11-15T06:00:48.729Z'
+    timestamp: "2024-11-15T06:00:48.729Z"
     bpp_id: sellerNP.com
     ttl: PT30S
   message:
@@ -96,20 +96,20 @@ value:
           city: Noida
           state: Uttar Pradesh
           country: IND
-          area_code: '201301'
-        phone: '7004498992'
+          area_code: "201301"
+        phone: "7004498992"
         name: saurav
         email: nobody@nomail.com
-        created_at: '2024-11-15T05:58:12.882Z'
-        updated_at: '2024-11-15T05:58:12.882Z'
+        created_at: "2024-11-15T05:58:12.882Z"
+        updated_at: "2024-11-15T05:58:12.882Z"
       fulfillments:
-        - '@ondc/org/TAT': PT60M
+        - "@ondc/org/TAT": PT60M
           id: a48b0756-c7fe-469a-bf52-946529b5b2ba
           tracking: true
           end:
             contact:
               email: nobody@nomail.com
-              phone: '7004498992'
+              phone: "7004498992"
             person:
               name: saurav
             location:
@@ -121,13 +121,13 @@ value:
                 city: Noida
                 state: Uttar Pradesh
                 country: IND
-                area_code: '201301'
+                area_code: "201301"
             time:
               range:
-                start: '2024-11-15T06:30:38.697Z'
-                end: '2024-11-15T07:00:00.722Z'
+                start: "2024-11-15T06:30:38.697Z"
+                end: "2024-11-15T07:00:00.722Z"
           type: Delivery
-          '@ondc/org/provider_name': Store 1
+          "@ondc/org/provider_name": Store 1
           state:
             descriptor:
               code: Order-picked-up
@@ -140,15 +140,15 @@ value:
               address:
                 locality: Kasaba Hobli
                 city: Noida
-                area_code: '201301'
+                area_code: "201301"
                 state: UP
             time:
               range:
-                start: '2024-11-15T06:00:25.002Z'
-                end: '2024-11-15T06:15:38.722Z'
-              timestamp: '2024-11-15T06:00:48.729Z'
+                start: "2024-11-15T06:00:25.002Z"
+                end: "2024-11-15T06:15:38.722Z"
+              timestamp: "2024-11-15T06:00:48.729Z"
             contact:
-              phone: '8948488448'
+              phone: "8948488448"
               email: nobody@nomail.com
           tags:
             - code: routing
@@ -158,38 +158,38 @@ value:
             - code: tracking
               list:
                 - code: gps_enabled
-                  value: 'yes'
+                  value: "yes"
                 - code: url_enabled
-                  value: 'no'
+                  value: "no"
       quote:
         price:
           currency: INR
-          value: '1440.70'
+          value: "1440.70"
         breakup:
-          - '@ondc/org/item_id': 7a1eb7d6-c522-5a69-936d-b9ebbaf88869
-            '@ondc/org/item_quantity':
+          - "@ondc/org/item_id": 7a1eb7d6-c522-5a69-936d-b9ebbaf88869
+            "@ondc/org/item_quantity":
               count: 2
             title: Farm House Pizza
-            '@ondc/org/title_type': item
+            "@ondc/org/title_type": item
             price:
               currency: INR
-              value: '538'
+              value: "538"
             item:
               price:
                 currency: INR
-                value: '269'
+                value: "269"
               tags:
                 - code: type
                   list:
                     - code: type
                       value: item
               parent_item_id: OYOYEigae6Av
-          - '@ondc/org/item_id': 7a1eb7d6-c522-5a69-936d-b9ebbaf88869
+          - "@ondc/org/item_id": 7a1eb7d6-c522-5a69-936d-b9ebbaf88869
             title: Tax
-            '@ondc/org/title_type': tax
+            "@ondc/org/title_type": tax
             price:
               currency: INR
-              value: '13.45'
+              value: "13.45"
             item:
               parent_item_id: OYOYEigae6Av
               tags:
@@ -197,18 +197,18 @@ value:
                   list:
                     - code: type
                       value: item
-          - '@ondc/org/item_id': C2
-            '@ondc/org/item_quantity':
+          - "@ondc/org/item_id": C2
+            "@ondc/org/item_quantity":
               count: 2
             title: 100% Wheat Thin Crust
-            '@ondc/org/title_type': item
+            "@ondc/org/title_type": item
             price:
               currency: INR
-              value: '0'
+              value: "0"
             item:
               price:
                 currency: INR
-                value: '0'
+                value: "0"
               tags:
                 - code: type
                   list:
@@ -219,12 +219,12 @@ value:
                     - code: id
                       value: CG1
               parent_item_id: OYOYEigae6Av
-          - '@ondc/org/item_id': C2
+          - "@ondc/org/item_id": C2
             title: Tax
-            '@ondc/org/title_type': tax
+            "@ondc/org/title_type": tax
             price:
               currency: INR
-              value: '0.00'
+              value: "0.00"
             item:
               parent_item_id: OYOYEigae6Av
               tags:
@@ -236,18 +236,18 @@ value:
                   list:
                     - code: id
                       value: CG1
-          - '@ondc/org/item_id': C7
-            '@ondc/org/item_quantity':
+          - "@ondc/org/item_id": C7
+            "@ondc/org/item_quantity":
               count: 2
             title: Medium
-            '@ondc/org/title_type': item
+            "@ondc/org/title_type": item
             price:
               currency: INR
-              value: '550'
+              value: "550"
             item:
               price:
                 currency: INR
-                value: '275'
+                value: "275"
               tags:
                 - code: type
                   list:
@@ -258,12 +258,12 @@ value:
                     - code: id
                       value: CG3
               parent_item_id: OYOYEigae6Av
-          - '@ondc/org/item_id': C7
+          - "@ondc/org/item_id": C7
             title: Tax
-            '@ondc/org/title_type': tax
+            "@ondc/org/title_type": tax
             price:
               currency: INR
-              value: '20.50'
+              value: "20.50"
             item:
               parent_item_id: OYOYEigae6Av
               tags:
@@ -275,18 +275,18 @@ value:
                   list:
                     - code: id
                       value: CG3
-          - '@ondc/org/item_id': C14
-            '@ondc/org/item_quantity':
+          - "@ondc/org/item_id": C14
+            "@ondc/org/item_quantity":
               count: 2
             title: Grilled Mushroom
-            '@ondc/org/title_type': item
+            "@ondc/org/title_type": item
             price:
               currency: INR
-              value: '120'
+              value: "120"
             item:
               price:
                 currency: INR
-                value: '60'
+                value: "60"
               tags:
                 - code: type
                   list:
@@ -297,12 +297,12 @@ value:
                     - code: id
                       value: CG6
               parent_item_id: OYOYEigae6Av
-          - '@ondc/org/item_id': C14
+          - "@ondc/org/item_id": C14
             title: Tax
-            '@ondc/org/title_type': tax
+            "@ondc/org/title_type": tax
             price:
               currency: INR
-              value: '4.00'
+              value: "4.00"
             item:
               parent_item_id: OYOYEigae6Av
               tags:
@@ -314,18 +314,18 @@ value:
                   list:
                     - code: id
                       value: CG6
-          - '@ondc/org/item_id': C16
-            '@ondc/org/item_quantity':
+          - "@ondc/org/item_id": C16
+            "@ondc/org/item_quantity":
               count: 2
             title: Pepper Barbeque Chicken
-            '@ondc/org/title_type': item
+            "@ondc/org/title_type": item
             price:
               currency: INR
-              value: '150'
+              value: "150"
             item:
               price:
                 currency: INR
-                value: '75'
+                value: "75"
               tags:
                 - code: type
                   list:
@@ -336,12 +336,12 @@ value:
                     - code: id
                       value: CG6
               parent_item_id: OYOYEigae6Av
-          - '@ondc/org/item_id': C16
+          - "@ondc/org/item_id": C16
             title: Tax
-            '@ondc/org/title_type': tax
+            "@ondc/org/title_type": tax
             price:
               currency: INR
-              value: '4.75'
+              value: "4.75"
             item:
               parent_item_id: OYOYEigae6Av
               tags:
@@ -353,51 +353,51 @@ value:
                   list:
                     - code: id
                       value: CG6
-          - '@ondc/org/item_id': a48b0756-c7fe-469a-bf52-946529b5b2ba
+          - "@ondc/org/item_id": a48b0756-c7fe-469a-bf52-946529b5b2ba
             title: Delivery charges
-            '@ondc/org/title_type': delivery
+            "@ondc/org/title_type": delivery
             price:
               currency: INR
-              value: '20'
-          - '@ondc/org/item_id': a48b0756-c7fe-469a-bf52-946529b5b2ba
+              value: "20"
+          - "@ondc/org/item_id": a48b0756-c7fe-469a-bf52-946529b5b2ba
             title: Packing charges
-            '@ondc/org/title_type': packing
+            "@ondc/org/title_type": packing
             price:
               currency: INR
-              value: '10'
-          - '@ondc/org/item_id': a48b0756-c7fe-469a-bf52-946529b5b2ba
+              value: "10"
+          - "@ondc/org/item_id": a48b0756-c7fe-469a-bf52-946529b5b2ba
             title: Convenience Fee
-            '@ondc/org/title_type': misc
+            "@ondc/org/title_type": misc
             price:
               currency: INR
-              value: '10'
+              value: "10"
         ttl: P1D
       payment:
         uri: https://razorpay.com/
         tl_method: http/get
         params:
-          amount: '1440.70'
+          amount: "1440.70"
           currency: INR
           transaction_id: order_PLTPjLOv5leqNB
         status: PAID
         type: ON-ORDER
         collected_by: BAP
-        '@ondc/org/buyer_app_finder_fee_type': percent
-        '@ondc/org/buyer_app_finder_fee_amount': '3.0'
-        '@ondc/org/settlement_basis': delivery
-        '@ondc/org/settlement_window': P1D
-        '@ondc/org/withholding_amount': '10.00'
-        '@ondc/org/settlement_details':
+        "@ondc/org/buyer_app_finder_fee_type": percent
+        "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+        "@ondc/org/settlement_basis": delivery
+        "@ondc/org/settlement_window": P1D
+        "@ondc/org/withholding_amount": "10.00"
+        "@ondc/org/settlement_details":
           - settlement_counterparty: seller-app
             settlement_phase: sale-amount
             settlement_type: neft
-            settlement_bank_account_no: '173010200000374'
+            settlement_bank_account_no: "173010200000374"
             settlement_ifsc_code: UTIB0000004
             beneficiary_name: saurav
             bank_name: SBI Bank
             branch_name: Noida
-      created_at: '2024-11-15T05:58:38.158Z'
-      updated_at: '2024-11-15T06:00:48.729Z'
+      created_at: "2024-11-15T05:58:38.158Z"
+      updated_at: "2024-11-15T06:00:48.729Z"
       documents:
         - url: https://invoice_url
           label: Invoice

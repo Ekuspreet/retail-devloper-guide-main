@@ -5,6 +5,10 @@ search:
 on_search:
   message:
     catalog:
+      "bpp/descriptor":
+        $ref: "./tag-group.yaml#/bpp_descriptor"
+      "bpp/providers":
+        $ref: "./tag-group.yaml#/bpp_providers"
       providers:
         $ref: "./tag-group.yaml#/providers"
 on_select: &ref0
@@ -16,7 +20,17 @@ on_init: &ref0
   message:
     order:
       $ref: "./tag-group.yaml#/order"
-confirm: *ref0
+confirm:
+  message:
+    order:
+      items:
+        $ref: "./tag-group.yaml#/order/items"
+      fulfillments:
+        $ref: "./tag-group.yaml#/order_confirm_fulfillments"
+      quote:
+        $ref: "./tag-group.yaml#/order/quote"
+      tags:
+        $ref: "./tag-group.yaml#/order/tags"
 on_confirm: *ref0
 update: *ref0
 on_update: *ref0
@@ -28,5 +42,8 @@ on_track:
 on_status:
   message:
     order:
-      $ref: "./tag-group.yaml#/order/quote"
+      fulfillments:
+        $ref: "./tag-group.yaml#/order/fulfillments"
+      quote:
+        $ref: "./tag-group.yaml#/order/quote"
 
