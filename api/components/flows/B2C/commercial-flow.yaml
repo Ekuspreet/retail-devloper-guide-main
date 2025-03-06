@@ -1,0 +1,80 @@
+summary: Retail 1.2.5 (Commercial Model for BNP/SNP)
+description: The Buyer NP (BNP) selects specific options for each item, including the convenience fee applied as a channel margin. The np_fees options are provided by the Seller NP (SNP) in the /on_select response, where they are included in the quote.breakup with a quote line item labeled title_type="misc". The BNP then selects the desired fee option for each item, which is sent as part of the /init request. In response, the SNP provides an updated quote, including the selected options, in the /on_init response. This ensures that both parties have aligned pricing details, reflecting any additional charges based on the selected fee options.
+details:
+  - description: Buyer Search & Quotation
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant Gateway
+        participant B2C BPP
+
+        B2C BAP->>Gateway: **/search**  - Buyer searches for full catalog refresh
+        Gateway->>B2C BPP: **/search**  - Buyer searches for full catalog refresh
+        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain
+
+  - description: Pre-order APIs
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BAP ->> B2C BPP: **/select** - Buyer adds the item(s) to the cart.
+        B2C BPP ->> B2C BAP: **/on_select** - Returns quote breakup (adding offers if any) when item is in stock 
+
+        B2C BAP ->> B2C BPP: **/init** - Buyer initializes the order and proceeds to checkout.
+        B2C BPP ->> B2C BAP: **/on_init** - Seller app initializes order
+        
+        B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms order
+        B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts order
+reference: if any
+steps:
+  - summary: BAP sends the search request
+    api: search
+    description: BAP sends the search request
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/commercial-flow/01_search_full_catalog_refresh.yaml"
+  - summary: BPP returns the full catalog refresh
+    api: on_search
+    description: BPP returns the full catalog refresh
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/commercial-flow/02_on_search_full_catalog_refresh.yaml"
+  - summary: BAP select the item
+    api: select
+    description: BAP select the item
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/commercial-flow/03_select.yaml"
+  - summary: BPP returns item breakup when item is in stock and offer applied (if any)
+    api: on_select
+    description: BPP returns item breakup when item is in stock and offer applied (if any)
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/commercial-flow/04_on_select.yaml"
+  - summary: Buyer initiate the product and send the updated fulfillment id
+    api: init
+    description: Buyer initiate the product and send the updated fulfillment id
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/commercial-flow/05_init.yaml"
+  - summary: Respond to init
+    api: on_init
+    description: Respond to init
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/commercial-flow/06_on_init.yaml"
+  - summary: Buyer confirms product
+    api: confirm
+    description: Buyer confirms product
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/commercial-flow/07_confirm.yaml"
+  - summary: Seller Accepts confirmation
+    api: on_confirm
+    description: Seller Accepts confirmation
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/commercial-flow/08_on_confirm.yaml"

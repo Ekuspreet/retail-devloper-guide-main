@@ -1,0 +1,47 @@
+fulfillments:
+  type:
+    - code: Cancel
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Delivery
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Return
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+  state:
+    descriptor:
+      code:
+      - code: Accepted
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Cancelled
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Pending
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Order-delivered
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Return_Initiated
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Return_Pick_Failed
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Return_Approved
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Return_Picked
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Return_Delivered
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Liquidated
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Return_Rejected
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>

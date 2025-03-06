@@ -1,0 +1,47 @@
+message:
+  parent: true
+  order:
+    parent: true
+    offers:
+      parent: true
+      offers:
+        description: only if buyer selects offer code
+        required: optional
+        usage: "-"
+        reference: if any
+      id:
+        description: if offer code is not valid, seller NP can NACK /select with error code 30006
+        required: optional
+        usage: "-"
+        reference: if any
+    fulfillments:
+      parent: true
+      fulfillments:
+        description: fulfillment details
+        required: required
+        usage: "-"
+        reference: if any
+      end:
+        end:
+          description: fulfillment end location, i.e. delivery location for buyer
+          required: required
+          usage: "-"
+          reference: if any
+        location:
+          gps:
+            description: GPS coordinates & precision for fulfillment end location has to be same in /confirm
+            required: required
+            usage: 1.380621, 103.746364
+            reference: if any
+    payment:
+      parent: true
+      payment:
+        description: payment details
+        required: optional
+        usage: "-"
+        reference: if any
+      type:
+        description: enum - "ON-ORDER" (prepaid), "ON-FULFILLMENT" (on delivery), "POST-FULFILLMENT" (after delivery)
+        required: optional
+        usage: ON-FULFILLMENT
+        reference: if any

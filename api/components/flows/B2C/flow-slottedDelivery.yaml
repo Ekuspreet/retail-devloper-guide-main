@@ -1,0 +1,96 @@
+summary: Retail 1.2.0 (Slotted Delivery)
+description: The ONDC Order Fulfillment Phase includes item selection, order confirmation and so on. The Buyer NP selects items (/select), and the Seller NP responds with serviceability details (/on_select) and slotted delivery options. During initialization (/init), the Buyer NP selects the desired slot before proceeding with the order (/on_init). Once finalized, the order is placed (/confirm), and the Seller NP accepts, defers, or rejects it (/on_confirm).
+details:
+  - description: Buyer Search & Quotation
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant Gateway
+        participant B2C BPP
+
+        B2C BAP->>Gateway: **/search**  - Buyer searches for full catalog refresh
+        Gateway->>B2C BPP: **/search**  - Buyer searches for full catalog refresh
+        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain
+
+  - description: Pre-order APIs
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BAP ->> B2C BPP: **/select** - Buyer adds the item(s) to the cart.
+        B2C BPP ->> B2C BAP: **/on_select** - Returns quote breakup (adding offers if any) when item is in stock and slotted delivery options
+
+        B2C BAP ->> B2C BPP: **/init** - Buyer initializes the order and select the desired slot and proceeds to checkout.
+        B2C BPP ->> B2C BAP: **/on_init** - Seller app initializes order
+        
+        B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms order
+        B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts order
+  - description: Post-order APIs
+    mermaidGraph: >-
+      sequenceDiagram
+      
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BAP ->> B2C BPP: **/status** - Buyer requests for a Status update
+
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Packed
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Agent Assigned
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Picked Up
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Out for Delivery
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Delivered
+        B2C BAP ->> B2C BPP: **/track** - Tracking Initiated
+        B2C BPP ->> B2C BAP: **/on_track** - Real-time Tracking Updates
+reference: if any
+steps:
+  - summary: BAP sends the search request
+    api: search
+    description: BAP sends the search request
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/slotted-delivery/01_search_full_catalog_refresh.yaml"
+  - summary: BPP returns the full catalog refresh
+    api: on_search
+    description: BPP returns the full catalog refresh
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/slotted-delivery/02_on_search_full_catalog_refresh.yaml"
+  - summary: BAP select the item
+    api: select
+    description: BAP select the item
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/slotted-delivery/03_select.yaml"
+  - summary: BPP returns item breakup when item is in stock and offer applied (if any) and slotted delivery options
+    api: on_select
+    description: BPP returns item breakup when item is in stock and offer applied (if any) and slotted delivery options
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/slotted-delivery/04_on_select.yaml"
+  - summary: Buyer initiate the product and send the updated fulfillment id with the desired slot
+    api: init
+    description: Buyer initiate the product and send the updated fulfillment id with the desired slot
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/slotted-delivery/05_init.yaml"
+  - summary: Respond to init
+    api: on_init
+    description: Respond to init
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/slotted-delivery/06_on_init.yaml"
+  - summary: Buyer confirms product
+    api: confirm
+    description: Buyer confirms product
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/slotted-delivery/07_confirm.yaml"
+  - summary: Seller Accepts confirmation
+    api: on_confirm
+    description: Seller Accepts confirmation
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/slotted-delivery/08_on_confirm.yaml"

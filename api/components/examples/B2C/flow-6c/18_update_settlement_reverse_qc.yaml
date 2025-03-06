@@ -1,0 +1,28 @@
+value:
+  context:
+    domain: ONDC:RET10
+    action: update
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: 91728968-9aea-4d66-94a5-49dc89820af8
+    message_id: ef80c388-1fdd-4273-83de-1c2295dc8241
+    city: std:080
+    country: IND
+    timestamp: "2025-02-10T09:43:08.367Z"
+  message:
+    update_target: payment
+    order:
+      id: 2025-02-10-293522
+      fulfillments:
+        - id: 67a9ad8173aa689a957eaf54
+          type: Return
+      payment:
+        "@ondc/org/settlement_details":
+          - settlement_counterparty: buyer
+            settlement_phase: refund
+            settlement_type: netbanking
+            settlement_amount: "500"
+            settlement_timestamp: "2025-02-10T09:43:08.367Z"

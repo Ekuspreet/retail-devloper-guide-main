@@ -1,0 +1,56 @@
+message:
+  parent: true
+  order:
+    parent: true
+    billing:
+      parent: true
+      tax_number:
+        description: Tax number
+        reference: if any
+        usage: "-"
+        required: optional, may be required for B2B
+      address:
+        name:
+          description: house no (for independent dwellings) or door no (for apartments or community dwellings) if name is house no, building is optional
+          reference: if any
+          usage: 'Flat 2/A'
+          required: required
+        locality:
+          description: street name
+          reference: if any
+          usage: "Feng Shu Street"
+          required: required
+      email:
+        description: Email
+        reference: if any
+        usage: nobody@nomail.com
+        required: optional
+      created_at:
+        description: timestamp for creation of billing object
+        reference: if any
+        usage: '2023-06-03T09:00:00.000Z'
+        required: required
+      updated_at:
+        description: same as created_at
+        reference: if any
+        usage: '2023-06-03T09:00:00.000Z'
+        required: required
+    fulfillments:
+      parent: true
+      fulfillments:
+        description: fullfillment details
+        reference: if any
+        usage: "-"
+        required: required
+      end:
+        location:
+          address:
+            description: name + building + locality < 190 chars, name != locality
+            reference: if any
+            required: required
+            usage: "-"
+            name:
+              description: house no (for independent dwellings) or door no (for apartments or community dwellings) if name is house no, building is optional
+              reference: if any
+              required: required
+              usage: "Flat 2/A"

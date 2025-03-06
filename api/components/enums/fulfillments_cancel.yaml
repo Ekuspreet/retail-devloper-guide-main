@@ -1,0 +1,16 @@
+fulfillments:
+  state:
+    descriptor:
+      code:
+      - code: Cancelled
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: RTO-Initiated
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: RTO-Delivered
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: RTO-Disposed
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>

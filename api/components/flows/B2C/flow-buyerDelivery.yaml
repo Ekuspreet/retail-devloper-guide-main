@@ -1,0 +1,152 @@
+summary: Retail 1.2.0 (Buyer-Delivery)
+description: The Order Fulfillment Phase in ONDC involves item selection, order confirmation, and tracking. The Buyer Network Participant (Buyer NP) selects items using the /select API, and the Seller Network Participant (Seller NP) responds with serviceability details via /on_select. Both parties finalize terms using /init, and the Seller NP acknowledges it with /on_init. Once finalized, the Buyer NP places the order via /confirm, and the Seller NP either accepts, defers, or rejects the order using /on_confirm. After order placement, the Seller NP provides unsolicited status updates through /on_status until the order is packed. From this point, the Buyer NP takes over by providing solicited updates using /update until the order is delivered, while the Seller NP acknowledges these updates through /on_update.
+details:
+  - description: Buyer Search & Quotation
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant Gateway
+        participant B2C BPP
+
+        B2C BAP->>Gateway: **/search**  - Buyer searches for full catalog refresh
+        Gateway->>B2C BPP: **/search**  - Buyer searches for full catalog refresh
+        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain
+
+  - description: Pre-order APIs
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BAP ->> B2C BPP: **/select** - Buyer adds the item(s) to the cart.
+        B2C BPP ->> B2C BAP: **/on_select** - Returns quote breakup (adding offers if any) when item is in stock 
+
+        B2C BAP ->> B2C BPP: **/init** - Buyer initializes the order and proceeds to checkout.
+        B2C BPP ->> B2C BAP: **/on_init** - Seller app initializes order
+        
+        B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms order
+        B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts order
+  - description: Post-order APIs
+    mermaidGraph: >-
+      sequenceDiagram
+      
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BAP ->> B2C BPP: **/status** - Buyer requests for a Status update
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Pending
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Packed
+        
+        B2C BAP ->> B2C BPP: **/update - Order Picked** - Buyer updates the fulfilment state
+        B2C BPP ->> B2C BAP: **/on_update - Order Picked** - Seller updates the fulfillment state
+
+        B2C BAP ->> B2C BPP: **/update - Order Out For Delivery** - Buyer updates the fulfilment state
+        B2C BPP ->> B2C BAP: **/on_update - Order Out For Delivery** - Seller updates the fulfillment state
+        
+        B2C BAP ->> B2C BPP: **/update - Order Delivered** - Buyer updates the fulfilment state
+        B2C BPP ->> B2C BAP: **/on_update - Order Delivered** - Seller updates the fulfillment state
+reference: if any
+steps:
+  - summary: BAP sends the search request
+    api: search
+    description: BAP sends the search request
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/buyer-delivery/01_search_full_catalog_refresh.yaml"
+  - summary: BPP returns the full catalog refresh
+    api: on_search
+    description: BPP returns the full catalog refresh
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/buyer-delivery/02_on_search_full_catalog_refresh.yaml"
+  - summary: BAP select the item
+    api: select
+    description: BAP select the item
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/buyer-delivery/03_select.yaml"
+  - summary: BPP returns item breakup when item is in stock and offer applied (if any)
+    api: on_select
+    description: BPP returns item breakup when item is in stock and offer applied (if any)
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/buyer-delivery/04_on_select.yaml"
+  - summary: Buyer initiate the product and send the updated fulfillment id
+    api: init
+    description: Buyer initiate the product and send the updated fulfillment id
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/buyer-delivery/05_init.yaml"
+  - summary: Respond to init
+    api: on_init
+    description: Respond to init
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/buyer-delivery/06_on_init.yaml"
+  - summary: Buyer confirms product
+    api: confirm
+    description: Buyer confirms product
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/buyer-delivery/07_confirm.yaml"
+  - summary: Seller Accepts confirmation
+    api: on_confirm
+    description: Seller Accepts confirmation
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/buyer-delivery/08_on_confirm.yaml"
+  - summary: Status updates - order pending
+    api: on_status - pending
+    description: Status updates - order pending
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/buyer-delivery/09_on_status_pending.yaml"
+  - summary: Status updates - order packed
+    api: on_status - packed
+    description: Status updates - order packed
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/buyer-delivery/10_on_status_packed.yaml"
+  - summary: Status updates - order picked up
+    api: update - picked
+    description: Status updates - order picked up
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/buyer-delivery/11_update_picked.yaml"
+
+  - summary: Status updates - order picked up (updated)
+    api: on_update - picked
+    description: Seller updated the order as picked up
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/buyer-delivery/12_on_update_picked.yaml"
+
+  - summary: Status updates - order out for delivery
+    api: update - out_for_delivery
+    description: Status updates - order out for delivery
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/buyer-delivery/13_update_out_for_delivery.yaml"
+
+  - summary: Status updates - order out for delivery (updated)
+    api: on_update - out_for_delivery
+    description: Seller updated the order as out for delivery
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/buyer-delivery/14_on_update_out_for_delivery.yaml"
+
+  - summary: Status updates - order delivered
+    api: update - order_delivered
+    description: Status updates - order delivered
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/buyer-delivery/15_update_delivered.yaml"
+
+  - summary: Status updates - order delivered (updated)
+    api: on_update - order_delivered
+    description: Seller updated the order as delivered
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/buyer-delivery/16_on_update_delivered.yaml"

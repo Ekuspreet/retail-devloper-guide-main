@@ -1,0 +1,32 @@
+value:
+  context:
+    domain: ONDC:RET10
+    country: IND
+    city: std:080
+    action: select
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: 91728968-9aea-4d66-94a5-49dc89820af8
+    message_id: 2e7a5eb2-4d81-4664-9c70-2da7df08794b
+    timestamp: "2025-02-10T07:26:54.268Z"
+    bpp_id: sellerNP.com
+    ttl: PT30S
+  message:
+    order:
+      items:
+        - id: oc_72
+          quantity:
+            count: 5
+          location_id: location_15
+      provider:
+        id: oc_22
+        locations:
+          - id: location_15
+      fulfillments:
+        - end:
+            location:
+              gps: 12.963691,77.577137
+              address:
+                area_code: "560002"

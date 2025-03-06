@@ -1,0 +1,33 @@
+value:
+  context:
+    action: search
+    country: IND
+    city: std:0124
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/buyer
+    transaction_id: 7776bdeb-d84b-4f46-b748-6dd9ef8dc8e0
+    message_id: 885bf38c-abac-4077-8a7a-37db58494fd5
+    timestamp: '2024-12-12T09:06:51.142Z'
+    ttl: PT30S
+    core_version: 1.2.0
+    domain: ONDC:RET14
+  message:
+    intent:
+      fulfillment:
+        type: Delivery
+      payment:
+        '@ondc/org/buyer_app_finder_fee_type': percent
+        '@ondc/org/buyer_app_finder_fee_amount': '3'
+        '@ondc/org/settlement_basis': delivery
+        '@ondc/org/settlement_window': P1D
+        '@ondc/org/withholding_amount': '10.00'
+      tags:
+        - code: bap_terms
+          list:
+            - code: static_terms
+              value: ''
+            - code: static_terms_new
+              value: >-
+                https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
+            - code: effective_date
+              value: '2024-12-14T23:59:00.000Z'

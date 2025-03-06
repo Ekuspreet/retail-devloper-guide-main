@@ -1,0 +1,81 @@
+value:
+  context.domain: updated domain namespace is https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+  message.catalog.bpp/descriptor: descriptor for seller NP
+  message.catalog.bpp/descriptor.symbol: logo or image for seller NP
+  message.catalog.bpp/providers: descriptor for seller (merchant) that processes & fulfills orders
+  message.catalog.bpp/providers[<index>].id: unique id for provider, must be same as bpp_id for ISN seller apps. Use of same provider id for distinct legal entities will cause an MSN being regarded as ISN and use of different provider id for same legal entity will cause an ISN being regarded as MSN, thus resulting in tax non-compliance
+  message.catalog.bpp/providers[<index>].time.label: enum - "enable" (default), "disable" (soft delete of provider from buyer NP cache)
+  message.catalog.bpp/providers[<index>].time.timestamp: timestamp when the snapshot for this provider (including provider details, items) was generated, must be <= Context.timestamp. Buyer NPs can use this to determine from when to start incremental refresh
+  message.catalog.bpp/providers[<index>].fulfillments: provider level fulfillment options
+  message.catalog.bpp/providers[<index>].fulfillments[<index>].contact: contact details for merchant - if merchant is in multiple locations, this will be the contact detail for merchant and contact detail for the storefront (specific location) will be in fulfillment.start
+  message.catalog.bpp/providers[<index>].fulfillments[<index>].contact.phone: valid 10 digit (mobile no) or 11 digit no
+  message.catalog.bpp/providers[<index>].fulfillments[<index>].contact.email: email id of merchant or seller NP
+  message.catalog.bpp/providers[<index>].ttl: ISO8601 duration format for validity of provider catalog
+  message.catalog.bpp/providers[<index>].locations: locations for provider with unique id for each location
+  message.catalog.bpp/providers[<index>].locations[<index>].time.label: enum - "enable" (default), "disable" (soft delete of provider location, i.e. warehouse or store, from buyer NP cache - in this case, serviceability for the store should not be a part of the catalog), "close" (temporary closure of store with the same format for time.range as specified, for incremental refresh, here - https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4 only if this event is available at the time of generating the full catalog snapshot)
+  message.catalog.bpp/providers[<index>].locations[<index>].time.timestamp: timestamp when the snapshot for location was generated, must be <= Context.timestamp
+  message.catalog.bpp/providers[<index>].locations[<index>].time.schedule.holidays: list of future dated holidays, to be used as per holiday calendar; if no holidays, empty array needs to be passed
+  message.catalog.bpp/providers[<index>].locations[<index>].address.locality: locality name
+  message.catalog.bpp/providers[<index>].categories[<index>].tags[<index>].code: if `code` is "attr", then it defines variant attributes i.e. attribute & sequence; multiple variant attributes can be defined in multiple attr blocks
+  message.catalog.bpp/providers[<index>].categories[<index>].tags[<index>].list[<index>].code: if `tags>code` is "attr", then namespaced attribute, above example means attribute(s) in "quantity.unitized" for an item
+  message.catalog.bpp/providers[<index>].categories[<index>].tags[<index>].list[<index>].value: if `tags>code` is "attr" and `tags>list>code` is "name", then it's corresponding `value` means concatenation of item.quantity.unitized.measure.value and item.quantity.unitized.measure.unit e.g. "1 kilogram", "2 kilogram", "5 kilogram"
+  message.catalog.bpp/providers[<index>].items[<index>].time.label: enum - "enable", "disable"
+  message.catalog.bpp/providers[<index>].items[<index>].time.timestamp: timestamp for item event
+  message.catalog.bpp/providers[<index>].items[<index>].parent_item_id: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
+  message.catalog.bpp/providers[<index>].items[<index>].descriptor.code: optional; unique code for item which will be in this format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5 - UPC, 6 - others
+  message.catalog.bpp/providers[<index>].items[<index>].descriptor.images: while item images ensures better discoverability & enhances user experience, if no image is available, seller NPs shouldn’t send image (instead of sending placeholder image)
+  message.catalog.bpp/providers[<index>].items[<index>].quantity.unitized.measure.unit: enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre" (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
+  message.catalog.bpp/providers[<index>].items[<index>].quantity.available.count: stringified integer value - default value for item in stock
+  message.catalog.bpp/providers[<index>].items[<index>].quantity.maximum.count: stringified integer value - cap per order (if exists) or default value
+  message.catalog.bpp/providers[<index>].items[<index>].category_id: enum from https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  message.catalog.bpp/providers[<index>].items[<index>].'@ondc/org/returnable': should default to true except for specific make-to-order items
+  message.catalog.bpp/providers[<index>].items[<index>].'@ondc/org/cancellable': should default to true except for specific make-to-order items
+  message.catalog.bpp/providers[<index>].items[<index>].'@ondc/org/seller_pickup_return': whether seller is responsible for pick up of item for return
+  message.catalog.bpp/providers[<index>].items[<index>].'@ondc/org/contact_details_consumer_care': valid contact details exactly in this format - name, email, contact no
+  message.catalog.bpp/providers[<index>].items[<index>].'@ondc/org/statutory_reqs_packaged_commodities': mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  message.catalog.bpp/providers[<index>].items[<index>].'@ondc/org/statutory_reqs_prepackaged_food': mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  [^36]: identifies origin of item i.e. country, state, etc
+  [^37]: ISO 3166-1 alpha-3 code
+  [^38]: images for statutory requirements - optional
+  [^39]: optional, only as applicable
+  [^40]: enum - "veg", "non_veg"
+  [^42]: optional; unique code for item which will be in this format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5 - Others
+  [^43]:  enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre" https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json
+  [^44]: enum from https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  [^45]: valid contact details exactly in this format - name, email, contact no
+  [^46]: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  [^47]: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  [^48]: identifies origin of item i.e. country, state, etc
+  [^49]:  ISO 3166-1 alpha-3 code
+  [^50]: optional, only as applicable
+  [^51]: enum - "veg", "non_veg", "egg"
+  [^53]: optional; unique code for item which will be in this format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5 - Others
+  [^54]: enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre" https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json
+  [^55]: enum from https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  [^56]: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  [^57]: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  [^58]: identifies origin of item i.e. country, state, etc.
+  [^59]: ISO 3166-1 alpha-3 code
+  [^60]: optional, only as applicable
+  [^61]: enum - "veg", "non_veg", "egg"
+  [^62]: credentials for provider (optional)
+  [^63]: globally identifiable identity or unique ID provided by seller app; mandatory if creds are provided
+  [^64]: display URL for credential, optional
+  [^65]: optional, only if available
+  [^66]: offer definition as per the template defined above
+  [^67]: for defining order value (e.g. min order value) for provider
+  [^68]: minimum order value for provider (up to 2 decimals)
+  [^69]: option for catalog response using link or inline (default)
+  [^70]: enum - "link" (link to zip file for items array for the provider), "inline" (items array in inline response, which is the default today)
+  [^71]: authorized link URL, required only if type = "link"; in this case, items array won’t be a part of inline response
+  [^72]: authorized link validity from last_update, required only if type = "link"
+  [^73]: timestamp for last update of link (RFC3339), required only if type = "link"
+  [^74]: timing for fulfillment type, enum - "Order" (online order processing timings), "Delivery" (order shipment timings, will be same as delivery timings for hyperlocal), "Self-Pickup" (self-pickup timings); example shows store open 24x7- Monday to Sunday (0000 - 2359)
+  [^75]: location id for provider
+  [^76]: valid value - day of week ("1" - Monday, "7" - Sunday)
+  [^77]: valid value - day of week ("1" - Monday, "7" - Sunday), day_to >= day_from
+  [^78]: valid value - 24hr format ("0000" to "2359")
+  [^79]: valid value - 24hr format ("0000" to "2359"), time_to >= time_from
+  [^80]: serviceability construct is defined for (provider+location+category) at either of these levels -  hyperlocal (radius) or intercity (pincodes) or pan-India; every unique combination of (provider+location+category) can have serviceability defined only at one of these levels
+  [^81]: maps to unique location for provider
+  [^82]: enum - "10" (hyperlocal), "11" (intercity), "12" (pan-India)
