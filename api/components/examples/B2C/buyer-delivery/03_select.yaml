@@ -1,0 +1,32 @@
+value:
+  context:
+    domain: ONDC:RET12
+    country: IND
+    city: std:080
+    action: select
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: 68079e7c-0af9-4e16-a356-2e6ec708e2cb
+    message_id: b8772264-1709-451b-8dcf-acb2b6ffe588
+    timestamp: '2024-08-08T10:01:11.813Z'
+    bpp_id: sellerNP.com
+    ttl: PT30S
+  message:
+    order:
+      items:
+        - id: 839cb128-34bd-444d-9ffc-05903e62b35a
+          quantity:
+            count: 1
+          location_id: 668e238e1b106d310473ddb0
+      provider:
+        id: 5b3981a7-512d-4ac4-bd75-ea48eff89a53
+        locations:
+          - id: 668e238e1b106d310473ddb0
+      fulfillments:
+        - end:
+            location:
+              gps: 12.966545,77.592074
+              address:
+                area_code: '560027'

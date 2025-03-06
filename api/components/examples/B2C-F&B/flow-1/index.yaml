@@ -1,0 +1,13 @@
+search:
+  examples:
+    search - full catalog refresh:
+      $ref: ./01_search_full_catalog_refresh.yaml
+    search - incremental refresh:
+      $ref: ./03_search_inc_refresh.yaml
+
+on_search:
+  examples:
+    on_search - on full catalog refresh:
+      $ref: ./02_on_search_full_catalog_refresh.yaml
+    on_search - on incremental refresh:
+      $ref: ./04_on_search_inc_refresh.yaml

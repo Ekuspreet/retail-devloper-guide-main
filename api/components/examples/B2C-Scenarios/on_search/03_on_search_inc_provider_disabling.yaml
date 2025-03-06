@@ -1,0 +1,22 @@
+value:
+  context:
+    domain: ONDC:RET10
+    action: on_search
+    country: IND
+    city: '*'
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: a4b24113-7c05-495b-9249-f33482bf3493
+    message_id: b62c0a11-714c-4c84-83c7-fc969bd65e1f
+    timestamp: '2023-06-03T08:30:00.000Z'
+    ttl: PT30S
+  message:
+    catalog:
+      bpp/providers:
+        - id: P1
+          time:
+            label: disable
+            timestamp: '2023-06-03T10:20:00.000Z'

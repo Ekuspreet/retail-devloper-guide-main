@@ -1,0 +1,25 @@
+value:
+  context:
+    domain: ONDC:RET12
+    action: update
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: 68079e7c-0af9-4e16-a356-2e6ec708e2cb
+    message_id: 17a77531-7e19-4a5f-bfa7-ab591c93028a
+    city: std:080
+    country: IND
+    timestamp: "2024-08-08T10:11:00.000Z"
+  message:
+    update_target: fulfillment
+    order:
+      id: 2024-08-08-739546
+      fulfillments:
+        - id: F3
+          tags:
+            - code: update_state
+              list:
+                - code: state
+                  value: Out-for-delivery

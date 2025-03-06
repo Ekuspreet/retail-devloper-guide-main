@@ -1,0 +1,46 @@
+summary: Retail 1.2.0 (Discovery Flow) F&B
+description: The Discovery Phase in ONDC enables buyers to search for products or services across the network. The Buyer NP initiates a /search request to specify the search intent (live search or catalog crawl), and the Seller NP responds with an /on_search call, providing relevant product listings based on the request.
+
+details:
+  - description: Buyer Search For Full Catalog Refresh and Incremental Changes
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant Gateway
+        participant B2C BPP
+
+        B2C BAP->>Gateway: **/search**  - Buyer searches for full catalog refresh
+        Gateway->>B2C BPP: **/search**  - Buyer searches for full catalog refresh
+        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain
+
+        B2C BAP->>Gateway: **/search - inc**  - Buyer searches for incremental changes
+        Gateway->>B2C BPP: **/search - inc**  - Buyer searches for incremental changes
+        B2C BPP->>B2C BAP: **/on_search - inc** - Returns the item or catalog incremental changes for the specific domain
+
+reference: if any
+steps:
+  - summary: BAP sends the search request
+    api: search
+    description: BAP sends the search request
+    reference: if any
+    example:
+      $ref: "../../examples/B2C-F&B/flow-1/01_search_full_catalog_refresh.yaml"
+  - summary: BPP returns the full catalog refresh
+    api: on_search
+    description: BPP returns the full catalog refresh
+    reference: if any
+    example:
+      $ref: "../../examples/B2C-F&B/flow-1/02_on_search_full_catalog_refresh.yaml"
+  - summary: Bap sends search for incremental changes
+    api: search - inc
+    description: Bap sends search for incremental changes
+    reference: if any
+    example:
+      $ref: "../../examples/B2C-F&B/flow-1/03_search_inc_refresh.yaml"
+  - summary: BPP returns the incremental changes
+    api: on_search - inc
+    description: BPP returns the incremental changes
+    reference: if any
+    example:
+      $ref: "../../examples/B2C-F&B/flow-1/04_on_search_inc_refresh.yaml"

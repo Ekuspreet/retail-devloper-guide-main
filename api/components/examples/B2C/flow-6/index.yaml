@@ -1,0 +1,82 @@
+search:
+  examples:
+    search:
+      $ref: ./01_search_full_catalog_refresh.yaml
+
+on_search:
+  examples:
+    on_search:
+      $ref: ./02_on_search_full_catalog_refresh.yaml
+
+select:
+  examples:
+    select:
+      $ref: ./03_select.yaml
+
+on_select:
+  examples:
+    on_select:
+      $ref: ./04_on_select.yaml
+
+init:
+  examples:
+    init:
+      $ref: ./05_init.yaml
+
+on_init:
+  examples:
+    on_init:
+      $ref: ./06_on_init.yaml
+
+confirm:
+  examples:
+    confirm:
+      $ref: ./07_confirm.yaml
+
+on_confirm:
+  examples:
+    on_confirm:
+      $ref: ./08_on_confirm.yaml
+
+on_update:
+  examples:
+    on_update - part cancel:
+      $ref: ./09_on_update_part_cancel.yaml
+    on_update - interim reverse QC:
+      $ref: ./17_on_update_interim_reverse_qc.yaml
+    on_update - approval:
+      $ref: ./18_on_update_approval.yaml
+    on_update - picked:
+      $ref: ./19_on_update_picked.yaml
+    on_update - delivered:
+      $ref: ./21_on_update_delivered.yaml
+    on_update - interim liquidated:
+      $ref: ./23_on_update_interim_liquidated.yaml
+    on_update - liquidated:
+      $ref: ./24_on_update_liquidated.yaml
+
+update:
+  examples:
+    update - settlement part cancel:
+      $ref: ./10_update_settlement_part_cancel.yaml
+    update - settlement reverse QC:
+      $ref: ./20_update_settlement_reverse_qc.yaml
+    update - reverse QC:
+      $ref: ./16_update_reverse_qc.yaml
+    update - settlement liquidated:
+      $ref: ./25_update_settlement_liquidated.yaml
+    update - liquidated:
+      $ref: ./22_update_liquidated.yaml
+
+on_status:
+  examples:
+    on_status - pending:
+      $ref: ./11_on_status_pending.yaml
+    on_status - packed:
+      $ref: ./12_on_status_packed.yaml
+    on_status - picked:
+      $ref: ./13_on_status_picked.yaml
+    on_status - out for delivery:
+      $ref: ./14_on_status_out_for_delivery.yaml
+    on_status - delivered:
+      $ref: ./15_on_status_delivered.yaml

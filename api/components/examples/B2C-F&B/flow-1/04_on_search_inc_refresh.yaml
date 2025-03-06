@@ -1,0 +1,94 @@
+value:
+  context:
+    domain: ONDC:RET11
+    action: on_search
+    country: IND
+    city: '*'
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    transaction_id: ca7c29fa-240a-4741-ac53-bef99b471fdb
+    message_id: edb350ce-7414-4fef-bd56-0a319b0db7a2
+    timestamp: '2024-11-15T02:00:00.000Z'
+    ttl: PT30S
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+  message:
+    catalog:
+      bpp/providers:
+        - id: a48b0756-c7fe-469a-bf52-946529b5b2ba
+          items:
+            - id: 7a1eb7d6-c522-5a69-936d-b9ebbaf88869
+              time:
+                label: enable
+                timestamp: '2024-11-15T02:00:00.000Z'
+              descriptor:
+                name: Store 1
+                symbol: https://sellerNP.com/images/store1.png
+                short_desc: Store 1
+                long_desc: Store 1
+                images:
+                  - https://sellerNP.com/images/store1.png
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: '1'
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '250'
+                maximum_value: '269'
+                tags:
+                  - code: range
+                    list:
+                      - code: lower
+                        value: '250'
+                      - code: upper
+                        value: '894'
+                  - code: default_selection
+                    list:
+                      - code: value
+                        value: '250.00'
+                      - code: maximum_value
+                        value: '250.00'
+              category_id: F&B
+              category_ids:
+                - '5:1'
+              location_id: a48b0756-c7fe-469a-bf52-946529b5b2ba
+              fulfillment_id: '1'
+              '@ondc/org/returnable': true
+              '@ondc/org/cancellable': true
+              '@ondc/org/available_on_cod': false
+              '@ondc/org/time_to_ship': PT30M
+              '@ondc/org/seller_pickup_return': true
+              '@ondc/org/return_window': P1D
+              '@ondc/org/contact_details_consumer_care': |-
+                Store 1,demo@gmail.com
+                ,8948488448
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: item
+                - code: custom_group
+                  list:
+                    - code: id
+                      value: CG1
+                - code: timing
+                  list:
+                    - code: day_from
+                      value: '1'
+                    - code: day_to
+                      value: '5'
+                    - code: time_from
+                      value: '1800'
+                    - code: time_to
+                      value: '2200'
+                - code: veg_nonveg
+                  list:
+                    - code: veg
+                      value: 'yes'

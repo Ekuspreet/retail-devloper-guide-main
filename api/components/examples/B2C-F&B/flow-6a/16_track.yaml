@@ -1,0 +1,17 @@
+value:
+  context:
+    domain: ONDC:RET11
+    country: IND
+    city: std:0120
+    action: track
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: 88c5af81-48b9-4181-977a-e4bc3659d74f
+    message_id: 8c1d2810-85f9-465d-91cb-0f5262b22082
+    timestamp: '2024-11-15T07:01:32.900Z'
+    bpp_id: sellerNP.com
+    ttl: PT30S
+  message:
+    order_id: 2024-11-15-982498

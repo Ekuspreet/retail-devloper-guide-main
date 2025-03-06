@@ -1,0 +1,39 @@
+search:
+  examples:
+    search:
+      $ref: ./01_search_full_catalog_refresh.yaml
+
+on_search:
+  examples:
+    on_search:
+      $ref: ./02_on_search_full_catalog_refresh.yaml
+
+select:
+  examples:
+    select:
+      $ref: ./03_select.yaml
+
+on_select:
+  examples:
+    on_select:
+      $ref: ./04_on_select.yaml
+
+init:
+  examples:
+    init:
+      $ref: ./05_init.yaml
+
+on_init:
+  examples:
+    on_init:
+      $ref: ./06_on_init.yaml
+
+confirm:
+  examples:
+    confirm:
+      $ref: ./07_confirm.yaml
+
+on_confirm:
+  examples:
+    on_confirm:
+      $ref: ./08_on_confirm.yaml

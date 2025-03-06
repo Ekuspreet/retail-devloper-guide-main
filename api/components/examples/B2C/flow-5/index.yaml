@@ -1,0 +1,57 @@
+search:
+  examples:
+    search:
+      $ref: ./01_search_full_catalog_refresh.yaml
+
+on_search:
+  examples:
+    on_search:
+      $ref: ./02_on_search_full_catalog_refresh.yaml
+
+select:
+  examples:
+    select:
+      $ref: ./03_select.yaml
+
+on_select:
+  examples:
+    on_select:
+      $ref: ./04_on_select.yaml
+
+init:
+  examples:
+    init:
+      $ref: ./05_init.yaml
+
+on_init:
+  examples:
+    on_init:
+      $ref: ./06_on_init.yaml
+
+confirm:
+  examples:
+    confirm:
+      $ref: ./07_confirm.yaml
+
+on_confirm:
+  examples:
+    on_confirm:
+      $ref: ./08_on_confirm.yaml
+
+on_status:
+  examples:
+    on_status - pending:
+      $ref: ./09_on_status_pending.yaml
+    on_status - packed:
+      $ref: ./10_on_status_packed.yaml
+    on_status - picked:
+      $ref: ./11_on_status_picked.yaml
+    on_status - out for delivery:
+      $ref: ./12_on_status_out_for_delivery.yaml
+    on_status - RTO delivered:
+      $ref: ./14_on_status_rto_delivered.yaml
+
+on_cancel:
+  examples:
+    on_cancel:
+      $ref: ./13_on_cancel.yaml
