@@ -6,11 +6,11 @@ value:
     core_version: 1.2.0
     bap_id: buyerNP.com
     bap_uri: https://buyerNP.com/ondc
-    transaction_id: 553de205-7609-46a3-9cfd-6a8d448705d1
-    message_id: M1
-    timestamp: "2024-12-10T08:49:33.284Z"
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: 072ccd93-3928-49d4-b6ef-9c8bf69745f8
+    message_id: 9c98c0e5-f409-4b13-8fd9-9e7f3af243f9
+    timestamp: '2024-12-23T07:45:38.230Z'
     bpp_id: sellerNP.com
-    ttl: PT30S
     city: std:022
   message:
     tracking:
@@ -18,7 +18,7 @@ value:
       location:
         gps: 19.129076,72.825803
         time:
-          timestamp: "2024-12-10T08:49:33.284Z"
-        updated_at: "2024-12-10T08:49:33.284Z"
-      url: https://sellerNP.com/ondc/tracking/F1
+          timestamp: '2024-12-23T07:45:38.230Z'
+        updated_at: '2024-12-23T07:45:38.230Z'
+      url: https://sellerNP.com/ondc/tracking_url
       status: active

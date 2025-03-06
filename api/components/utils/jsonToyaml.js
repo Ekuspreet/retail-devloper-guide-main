@@ -6,7 +6,7 @@ const { log } = require("console");
 // Define the root directory where your JSON files are located
 const rootDirectory = path.join(
   __dirname,
-  "../examples/B2C/commercial-flow"
+  "../examples/B2C/replacement-flow"
 );
 
 // Function to convert a JSON file to YAML

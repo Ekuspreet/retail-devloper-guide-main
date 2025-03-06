@@ -7,11 +7,11 @@ value:
     bap_uri: https://buyerNP.com/ondc
     bpp_id: sellerNP.com
     bpp_uri: https://sellerNP.com/ondc
-    transaction_id: 553de205-7609-46a3-9cfd-6a8d448705d1
-    message_id: M2
-    city: std:080
+    transaction_id: 072ccd93-3928-49d4-b6ef-9c8bf69745f8
+    message_id: 8ded399c-89ea-4100-a7c8-343430a7c8d0
+    city: std:022
     country: IND
-    timestamp: "2024-12-10T08:42:12.091Z"
+    timestamp: '2024-12-23T06:58:34.035Z'
     ttl: PT30S
   message:
     order:
@@ -20,13 +20,13 @@ value:
         locations:
           - id: L1
       items:
-        - id: P1
+        - id: I1
           quantity:
             count: 1
           location_id: L1
       fulfillments:
         - end:
             location:
-              gps: 13.077430,77.591444
+              gps: 19.131140,72.834091
               address:
-                area_code: "560065"
+                area_code: '400053'

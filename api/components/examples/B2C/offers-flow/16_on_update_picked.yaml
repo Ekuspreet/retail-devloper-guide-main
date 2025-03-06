@@ -181,10 +181,20 @@ value:
                   value: INR
                 - code: value
                   value: "-100.00"
+            - code: quote_trail
+              list:
+                - code: type
+                  value: item
+                - code: id
+                  value: 072ccd93-3928-49d4-b6ef-9c8bf69745f8
+                - code: currency
+                  value: INR
+                - code: value
+                  value: "50.00"
       quote:
         price:
           currency: INR
-          value: "50.00"
+          value: "100.00"
         breakup:
           - "@ondc/org/item_id": I1
             "@ondc/org/item_quantity":
@@ -209,7 +219,7 @@ value:
             "@ondc/org/title_type": offer
             price:
               currency: INR
-              value: "-50.00"
+              value: "0.00"
             item:
               tags:
                 - code: quote

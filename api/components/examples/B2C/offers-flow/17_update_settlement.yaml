@@ -25,5 +25,5 @@ value:
           - settlement_counterparty: buyer
             settlement_phase: refund
             settlement_type: netbanking
-            settlement_amount: "100.00"
+            settlement_amount: "50.00"
             settlement_timestamp: "2024-12-24T06:30:35.231Z"

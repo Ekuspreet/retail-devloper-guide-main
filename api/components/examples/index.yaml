@@ -68,7 +68,7 @@ B2C - Buyer Side Cancellation:
   example_set:
     $ref: "./B2C/flow-4/index.yaml"
 
-B2C - Seller side Cancellation:
+B2C - Seller side Cancellation (RTO):
   summary: B2C flow-5 Use Case Specification
   description: >-
     The Seller-Initiated Cancellation Flow in ONDC allows the Seller NP or Logistics Service Provider (LSP) to cancel an order if the buyer is unavailable, etc. The Seller NP/LSP sends an unsolicited cancellation request (/on_cancel), citing the cancellation reason. The order is then marked as canceled, and any applicable refunds or reversals are processed as per the cancellation terms.
@@ -138,7 +138,7 @@ B2C - Buyer Side Cancellation F&B:
   example_set:
     $ref: "./B2C-F&B/flow-4/index.yaml"
 
-B2C - Seller side Cancellation F&B:
+B2C - Seller side Cancellation F&B (RTO):
   summary: B2C flow-5 Use Case Specification
   description: >-
     The Seller-Initiated Cancellation Flow in ONDC allows the Seller NP or Logistics Service Provider (LSP) to cancel an order if the buyer is unavailable, etc. The Seller NP/LSP sends an unsolicited cancellation request (/on_cancel), citing the cancellation reason. The order is then marked as canceled, and any applicable refunds or reversals are processed as per the cancellation terms.
@@ -165,3 +165,17 @@ B2C - Commercial Model for BNP/SNP:
     The Buyer NP (BNP) selects specific options for each item, including the convenience fee applied as a channel margin. The np_fees options are provided by the Seller NP (SNP) in the /on_select response, where they are included in the quote.breakup with a quote line item labeled title_type="misc". The BNP then selects the desired fee option for each item, which is sent as part of the /init request. In response, the SNP provides an updated quote, including the selected options, in the /on_init response. This ensures that both parties have aligned pricing details, reflecting any additional charges based on the selected fee options.
   example_set:
     $ref: "./B2C/commercial-flow/index.yaml"
+
+B2C - Replacement Flow:
+  summary: B2C Replacement Flow Use Case Specification
+  description: >-
+    The Replacement Flow begins with the Seller NP (SNP) defining the terms for replacements in their catalog, including whether a replacement is allowed and the replacement window. When a Buyer NP (BNP) decides to return or replace specific items, they initiate a replacement request to the SNP. In response, the SNP starts the return fulfillment process, arranging for the pickup of the item(s) from the buyer. Once the item(s) are picked up, the SNP initiates forward fulfillment, arranging for the delivery of the replacement item(s) to the buyer.
+  example_set:
+    $ref: "./B2C/replacement-flow/index.yaml"
+
+B2C - Exchange Flow:
+  summary: B2C Exchange Flow Use Case Specification
+  description: >-
+    The exchange process starts with the Seller NP (SNP) listing exchange offers, which are published by the provider and displayed to buyers on the product listing page.Once the buyer receives delivery of an item eligible for exchange, they can raise an exchange request. The process follows the return-with-pickup flow with minor modifications in the /update request, such as item condition checks and potential price adjustments. After pickup and validation, the new product is dispatched, and the exchange is completed upon successful delivery.
+  example_set:
+    $ref: "./B2C/exchange-flow/index.yaml"

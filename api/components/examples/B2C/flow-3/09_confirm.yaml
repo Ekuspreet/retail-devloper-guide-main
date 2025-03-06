@@ -6,9 +6,10 @@ value:
     core_version: 1.2.0
     bap_id: buyerNP.com
     bap_uri: https://buyerNP.com/ondc
-    transaction_id: 553de205-7609-46a3-9cfd-6a8d448705d1
-    message_id: M1
-    timestamp: "2024-12-10T08:43:13.689Z"
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: 072ccd93-3928-49d4-b6ef-9c8bf69745f8
+    message_id: 3dbb05b6-dbb0-4399-95e6-c51cf5be842d
+    timestamp: '2024-12-23T07:03:30.516Z'
     bpp_id: sellerNP.com
     ttl: PT30S
     city: std:022
@@ -22,31 +23,31 @@ value:
           city: Mumbai
           state: Maharashtra
           country: IND
-          area_code: "400053"
+          area_code: '400053'
           locality: my street name
           name: my house or door or floor
-        phone: "9898989898"
+        phone: '9898989898'
         name: ONDC buyer
         email: nobody@nomail.com
-        created_at: "2024-12-10T08:43:13.689Z"
-        updated_at: "2024-12-10T08:43:13.689Z"
+        created_at: '2024-12-23T07:01:43.145Z'
+        updated_at: '2024-12-23T07:01:43.145Z'
       items:
-        - id: P1
+        - id: I1
           quantity:
             count: 1
           fulfillment_id: F1
       provider:
-        id: "1"
+        id: P1
         locations:
           - id: L1
       fulfillments:
-        - "@ondc/org/TAT": PT60M
+        - '@ondc/org/TAT': PT60M
           id: F1
           tracking: true
           end:
             contact:
               email: nobody@nomail.com
-              phone: "9898989898"
+              phone: '9898989898'
             person:
               name: ONDC Buyer
             location:
@@ -56,23 +57,21 @@ value:
                 city: Mumbai
                 state: Maharashtra
                 country: IND
-                area_code: "400053"
+                area_code: '400053'
                 locality: my street name
                 name: my house or door or floor
           type: Delivery
       payment:
-        uri: https://ondc.transaction.com/payment
-        tl_method: http/get
         params:
-          amount: "100.00"
+          amount: '100.00'
           currency: INR
-          transaction_id: 553de205-7609-46a3-9cfd-6a8d448705d1
+          transaction_id: order_PjggJp7MccQmAa
         status: PAID
         type: ON-ORDER
         collected_by: BAP
-        "@ondc/org/buyer_app_finder_fee_type": percent
-        "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-        "@ondc/org/settlement_details":
+        '@ondc/org/buyer_app_finder_fee_type': percent
+        '@ondc/org/buyer_app_finder_fee_amount': '3.0'
+        '@ondc/org/settlement_details':
           - settlement_counterparty: seller-app
             settlement_phase: sale-amount
             settlement_type: neft
@@ -84,20 +83,32 @@ value:
       quote:
         price:
           currency: INR
-          value: "100.00"
+          value: '100.00'
         breakup:
-          - "@ondc/org/item_id": P1
-            "@ondc/org/item_quantity":
+          - '@ondc/org/item_id': I1
+            '@ondc/org/item_quantity':
               count: 1
             title: Plain Atta
-            "@ondc/org/title_type": item
+            '@ondc/org/title_type': item
             price:
               currency: INR
-              value: "100"
+              value: '100'
             item:
               price:
                 currency: INR
-                value: "100.00"
+                value: '100.00'
+          - '@ondc/org/item_id': I1
+            title: Delivery charges
+            '@ondc/org/title_type': delivery
+            price:
+              currency: INR
+              value: '00.00'
+          - '@ondc/org/item_id': I1
+            title: Convenience Fee
+            '@ondc/org/title_type': misc
+            price:
+              currency: INR
+              value: '00.00'
         ttl: P1D
       tags:
         - code: bpp_terms
@@ -112,5 +123,5 @@ value:
           list:
             - code: tax_number
               value: gst_number_of_buyerNP
-      created_at: "2024-12-10T08:43:13.691Z"
-      updated_at: "2025-01-15T10:33:23.691Z"
+      created_at: '2024-12-23T07:03:30.516Z'
+      updated_at: '2024-12-23T07:03:30.516Z'

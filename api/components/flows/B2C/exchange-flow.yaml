@@ -1,0 +1,169 @@
+summary: Retail 1.2.5 (Exchange Flow)
+description: The exchange process starts with the Seller NP (SNP) listing exchange offers, which are published by the provider and displayed to buyers on the product listing page.Once the buyer receives delivery of an item eligible for exchange, they can raise an exchange request. The process follows the return-with-pickup flow with minor modifications in the /update request, such as item condition checks and potential price adjustments. After pickup and validation, the new product is dispatched, and the exchange is completed upon successful delivery.
+details:
+  - description: Buyer Search & Quotation
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant Gateway
+        participant B2C BPP
+
+        B2C BAP->>Gateway: **/search**  - Buyer searches for full catalog refresh
+        Gateway->>B2C BPP: **/search**  - Buyer searches for full catalog refresh
+        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain
+
+  - description: Pre-order APIs
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BAP ->> B2C BPP: **/select** - Buyer adds the item(s) to the cart.
+        B2C BPP ->> B2C BAP: **/on_select** - Returns quote breakup (adding offers if any) when item is in stock 
+
+        B2C BAP ->> B2C BPP: **/init** - Buyer initializes the order and proceeds to checkout.
+        B2C BPP ->> B2C BAP: **/on_init** - Seller app initializes order
+        
+        B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms order
+        B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts order
+  - description: Product Delivery
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Pending
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Packed
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Agent Assigned
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Picked Up
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Out for Delivery
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Delivered
+
+  - description: Return reverseQc with exchange
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BAP ->> B2C BPP: **/update** - reverse qc - Return request from BAP
+        B2C BPP ->> B2C BAP: **/on_update** - interim reverse qc - Return initiate request from BPP
+        B2C BPP ->> B2C BAP: **/on_update** - approval - BPP approves return request
+        B2C BPP ->> B2C BAP: **/on_update** - picked - Order picked up confirmation
+        B2C BPP ->> B2C BAP: **/on_update** - return delivered - Order return delivered confirmation
+reference: if any
+steps:
+  - summary: BAP sends the search request
+    api: search
+    description: BAP sends the search request
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/exchange-flow/01_search_full_catalog_refresh.yaml"
+  - summary: BPP returns the full catalog refresh
+    api: on_search
+    description: BPP returns the full catalog refresh
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/exchange-flow/02_on_search_full_catalog_refresh.yaml"
+  - summary: BAP select the item
+    api: select
+    description: BAP select the item
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/exchange-flow/03_select.yaml"
+  - summary: BPP returns item breakup when item is in stock and offer applied (if any)
+    api: on_select
+    description: BPP returns item breakup when item is in stock and offer applied (if any)
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/exchange-flow/04_on_select.yaml"
+  - summary: Buyer initiate the product and send the updated fulfillment id
+    api: init
+    description: Buyer initiate the product and send the updated fulfillment id
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/exchange-flow/05_init.yaml"
+  - summary: Respond to init
+    api: on_init
+    description: Respond to init
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/exchange-flow/06_on_init.yaml"
+  - summary: Buyer confirms product
+    api: confirm
+    description: Buyer confirms product
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/exchange-flow/07_confirm.yaml"
+  - summary: Seller Accepts confirmation
+    api: on_confirm
+    description: Seller Accepts confirmation
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/exchange-flow/08_on_confirm.yaml"
+  - summary: Status updates - order pending
+    api: on_status - pending
+    description: Status updates - order pending
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/exchange-flow/09_on_status_pending.yaml"
+  - summary: Status updates - order packed
+    api: on_status - packed
+    description: Status updates - order packed
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/exchange-flow/10_on_status_packed.yaml"
+  - summary: Status updates - order picked up
+    api: on_status - picked
+    description: Status updates - order picked up
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/exchange-flow/11_on_status_picked.yaml"
+  - summary: Status updates - order out for delivery
+    api: on_status - out_for_delivery
+    description: Status updates - order out for delivery
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/exchange-flow/12_on_status_out_for_delivery.yaml"
+  - summary: Status updates - order delivered
+    api: on_status - order_delivered
+    description: Status updates - order delivered
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/exchange-flow/13_on_status_delivered.yaml"
+  - summary: BAP requests to return the items with exchange
+    api: update - return request exchange 
+    description: BAP requests to return the items with exchange
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/exchange-flow/14_update_reverse_qc.yaml"
+  - summary: BPP sends the return initiate request with exchange
+    api: on_update - interim exchange
+    description: BPP sends the return initiate request with exchange
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/exchange-flow/15_on_update_interim_reverse_qc.yaml"
+  - summary: BPP approves return request with exchange
+    api: on_update - approved
+    description: BPP approves return request with exchange
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/exchange-flow/16_on_update_approval.yaml"
+  - summary: BPP sends the request that order picked up with exchange
+    api: on_update - picked
+    description: BPP sends the request that order picked up with exchange
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/exchange-flow/17_on_update_picked.yaml"
+  # - summary: Update Settlement - reverse qc
+  #   api: update - reverse qc settlement
+  #   description: Update Settlement - reverse qc
+  #   example:
+  #     $ref: "../../examples/B2C/exchange-flow/17_update_settlement.yaml"
+  - summary: BPP sends the request that order picked up with exchange
+    api: on_update - return delivered
+    description: BPP sends the request that order is delivered with exchange
+    reference: if any
+    example:
+      $ref: "../../examples/B2C/exchange-flow/18_on_update_delivered.yaml"

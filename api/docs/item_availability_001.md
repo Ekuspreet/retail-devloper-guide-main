@@ -1,24 +1,22 @@
-# Item Availability - 001  
+# Item availability - 001
 
-For catalog items that are available, within specific timeslots, or currently out-of-stock, SNP may send item availability timings as part of the catalog.  
+For catalog items available within specific timeslots or that are currently out-of-stock, SNP may send item availability timings as part of the catalog;
 
----
-
-## Payload Changes  
+**Payload changes**
 
 ```json
 {
   "context": {
     "action": "on_search",
     "core_version": "1.2.5",
-    ..
+    "..": ""
   },
   "message": {
     "catalog": {
       "bpp/providers": [
         {
           "id": "P1",
-          ..
+          "..": "",
           "items": [
             {
               "id": "I1",
@@ -26,7 +24,7 @@ For catalog items that are available, within specific timeslots, or currently ou
                 "label": "enable",
                 "timestamp": "2025-01-07T07:30:00.000Z"
               },
-              ..
+              "..": "",
               "tags": [
                 {
                   "code": "timing",
@@ -52,7 +50,7 @@ For catalog items that are available, within specific timeslots, or currently ou
               ]
             }
           ],
-          ..
+          "..": ""
         }
       ]
     }

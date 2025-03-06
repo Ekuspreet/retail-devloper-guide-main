@@ -6,16 +6,16 @@ value:
     core_version: 1.2.0
     bap_id: buyerNP.com
     bap_uri: https://buyerNP.com/ondc
-    transaction_id: 169c2fd2-d34a-4757-a80c-c7d3131f2c20
-    message_id: M1
-    timestamp: "2024-12-10T06:24:32.623Z"
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: ca7c29fa-240a-4741-ac53-bef99b471fdb
+    message_id: edb350ce-7414-4fef-bd56-0a319b0db7a2
+    timestamp: '2024-12-23T06:46:02.015Z'
     bpp_id: sellerNP.com
-    ttl: PT30S
-    city: std:022
+    city: '*'
   message:
     catalog:
       bpp/providers:
-        - id: L1
+        - id: P1
           items:
             - descriptor:
                 name: Plain Atta
@@ -27,46 +27,38 @@ value:
                   - https://sellerNP.com/images/i1.png
               price:
                 currency: INR
-                value: "100.00"
-                maximum_value: "100.00"
+                value: '100.00'
+                maximum_value: '100.00'
               quantity:
                 unitized:
                   measure:
                     unit: kilogram
-                    value: "3"
+                    value: '3'
                 available:
-                  count: "99"
+                  count: '99'
                 maximum:
-                  count: "99"
-              category_id: Foodgrains
+                  count: '99'
+              category_id: Atta, Flours and Sooji
               fulfillment_id: F1
               location_id: L1
-              "@ondc/org/returnable": true
-              "@ondc/org/cancellable": true
-              "@ondc/org/return_window": P7D
-              "@ondc/org/seller_pickup_return": false
-              "@ondc/org/time_to_ship": PT5M
-              "@ondc/org/available_on_cod": false
-              "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
-              "@ondc/org/statutory_reqs_packaged_commodities":
+              '@ondc/org/returnable': true
+              '@ondc/org/cancellable': true
+              '@ondc/org/return_window': P7D
+              '@ondc/org/seller_pickup_return': false
+              '@ondc/org/time_to_ship': PT5M
+              '@ondc/org/available_on_cod': false
+              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+              '@ondc/org/statutory_reqs_packaged_commodities':
                 manufacturer_or_packer_name: ITC
                 manufacturer_or_packer_address: ITC Quality Care Cell,P.O Box No.592,Bangalore-560005
                 common_or_generic_name_of_commodity: Ashirwad Atta
                 month_year_of_manufacture_packing_import: 01/2023
-              "@ondc/org/statutory_reqs_prepackaged_food":
-                nutritional_info: >-
-                  Energy(KCal)-(per 100kg) 420,(per serving
-                  50g)250;Protein(g)-(per 100kg) 12,(per serving 50g) 6
-                additives_info: Preservatives,Artificial Colours
-                brand_owner_FSSAI_license_no: "12345678901234"
-                other_FSSAI_license_no: "12345678901234"
-                importer_FSSAI_license_no: "12345678901234"
               time:
                 label: enable
-                timestamp: "2024-12-10T06:24:32.623Z"
+                timestamp: '2024-12-23T06:46:02.015Z'
               tags:
                 - code: origin
                   list:
                     - code: country
                       value: IND
-              id: P1
+              id: I1

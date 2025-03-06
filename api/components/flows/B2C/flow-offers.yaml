@@ -147,7 +147,7 @@ steps:
       $ref: "../../examples/B2C/offers-flow/14_on_update_interim_reverse_qc.yaml"
   - summary: BPP approves return request
     api: on_update - approved
-    description: BPP approves return request and liquidates the items
+    description: BPP approves return request
     reference: if any
     example:
       $ref: "../../examples/B2C/offers-flow/15_on_update_approval.yaml"

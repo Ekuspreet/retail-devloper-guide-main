@@ -6,9 +6,10 @@ value:
     core_version: 1.2.0
     bap_id: buyerNP.com
     bap_uri: https://buyerNP.com/ondc
-    transaction_id: 6c4feca7-87e4-4437-965c-5f7bd25bc4f3
-    message_id: M1
-    timestamp: "2024-12-23T07:10:00.413Z"
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: 072ccd93-3928-49d4-b6ef-9c8bf69745f8
+    message_id: 9c98c0e5-f409-4b13-8fd9-9e7f3af243f9
+    timestamp: '2024-12-23T07:45:35.230Z'
     bpp_id: sellerNP.com
     ttl: PT30S
     city: std:022

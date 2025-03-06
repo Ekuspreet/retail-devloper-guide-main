@@ -163,7 +163,7 @@ value:
                 - code: qualifier
                   list:
                     - code: min_value
-                      value: "100.00"
+                      value: "200.00"
                 - code: benefit
                   list:
                     - code: value_type

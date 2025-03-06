@@ -6,11 +6,11 @@ value:
     core_version: 1.2.0
     bap_id: buyerNP.com
     bap_uri: https://buyerNP.com/ondc
-    transaction_id: 202eb43f-4af3-4565-b034-6e15ff9d17b6
-    message_id: M1
-    timestamp: '2024-12-10T08:41:29.390Z'
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: b01ebd1a-c343-4c17-9b82-111ba527a8b8
+    message_id: 104c9501-3c9b-4756-ab4b-d8dad8251125
+    timestamp: '2024-12-23T06:50:31.035Z'
     bpp_id: sellerNP.com
-    ttl: PT30S
     city: std:022
   message:
     order:
@@ -19,7 +19,7 @@ value:
         locations:
           - id: L1
       fulfillments:
-        - id: '1'
+        - id: F1
           type: Delivery
           '@ondc/org/provider_name': LSP or Provider Name
           tracking: true
@@ -33,7 +33,7 @@ value:
           value: '100.00'
           currency: INR
         breakup:
-          - '@ondc/org/item_id': P1
+          - '@ondc/org/item_id': I1
             '@ondc/org/item_quantity':
               count: 1
             title: Plain Atta
@@ -64,9 +64,9 @@ value:
               value: '00.00'
         ttl: P1D
       items:
-        - id: P1
+        - id: I1
           fulfillment_id: F1
   error:
     type: DOMAIN-ERROR
     code: '40002'
-    message: M1
+    message: appropriate error message
