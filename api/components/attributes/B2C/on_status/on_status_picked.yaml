@@ -1,0 +1,192 @@
+context:
+  parent: true
+  domain:
+    description: Updated domain namespace.
+    required: required
+    usage: "ONDC:RET10"
+    reference: if any
+  action:
+    description: Type of action being performed.
+    required: required
+    usage: "on_status"
+    reference: if any
+  location:
+    parent: true
+    country:
+      code:
+        description: Country code for identifying the country of operation.
+        required: required
+        usage: "IND"
+        reference: if any
+    city:
+      code:
+        description: City code for search identifying seller locations.
+        required: required
+        usage: "std:022"
+        reference: if any
+  version:
+    description: API version used.
+    required: required
+    usage: "1.2.0"
+    reference: if any
+  bap_id:
+    description: Subscriber ID for the buyer app.
+    required: required
+    usage: "buyerNP.com"
+    reference: if any
+  bap_uri:
+    description: Subscriber URI for the buyer app.
+    required: required
+    usage: "https://buyerNP.com/ondc"
+    reference: if any
+  bpp_id:
+    description: Subscriber ID for the seller app.
+    required: required
+    usage: "sellerNP.com"
+    reference: if any
+  transaction_id:
+    description: Unique identifier for the transaction.
+    required: required
+    usage: "553de205-7609-46a3-9cfd-6a8d448705d1"
+    reference: if any
+  message_id:
+    description: Unique identifier for the message.
+    required: required
+    usage: "M1"
+    reference: if any
+  timestamp:
+    description: RFC3339 compliant timestamp.
+    required: required
+    usage: "2024-12-10T08:48:38.261Z"
+    reference: if any
+  ttl:
+    description: Validity of the message.
+    required: required
+    usage: "PT30S"
+    reference: if any
+
+message:
+  parent: true
+  order:
+    parent: true
+    id:
+      description: Unique identifier for the order.
+      required: required
+      usage: "O1"
+      reference: if any
+    state:
+      description: Current state of the order.
+      required: required
+      usage: "In-progress"
+      reference: if any
+    provider:
+      parent: true
+      id:
+        description: Unique identifier for the provider.
+        required: required
+        usage: "1"
+        reference: if any
+      locations:
+        parent: true
+        items:
+          - id:
+              description: Unique identifier for the location.
+              required: required
+              usage: "L1"
+              reference: if any
+    items:
+      parent: true
+      list:
+        - id:
+            description: Unique identifier for the item.
+            required: required
+            usage: "P1"
+            reference: if any
+          quantity:
+            count:
+              description: Number of items requested.
+              required: required
+              usage: "1"
+              reference: if any
+          fulfillment_id:
+            description: Fulfillment identifier.
+            required: required
+            usage: "F1"
+            reference: if any
+    billing:
+      parent: true
+      address:
+        parent: true
+        building:
+          description: Building name or house number.
+          required: required
+          usage: "my building name or house"
+          reference: if any
+        city:
+          description: City name.
+          required: required
+          usage: "Mumbai"
+          reference: if any
+        state:
+          description: State name.
+          required: required
+          usage: "Maharashtra"
+          reference: if any
+        country:
+          description: Country code.
+          required: required
+          usage: "IND"
+          reference: if any
+        area_code:
+          description: Postal code.
+          required: required
+          usage: "400053"
+          reference: if any
+        locality:
+          description: Street name.
+          required: required
+          usage: "my street name"
+          reference: if any
+        name:
+          description: House or floor name.
+          required: required
+          usage: "my house or door or floor"
+          reference: if any
+      phone:
+        description: Contact number.
+        required: required
+        usage: "9898989898"
+        reference: if any
+      name:
+        description: Name of the buyer.
+        required: required
+        usage: "ONDC buyer"
+        reference: if any
+      email:
+        description: Contact email.
+        required: required
+        usage: "nobody@nomail.com"
+        reference: if any
+      created_at:
+        description: Order creation timestamp.
+        required: required
+        usage: "2024-12-10T08:48:38.261Z"
+        reference: if any
+      updated_at:
+        description: Order update timestamp.
+        required: required
+        usage: "2024-12-10T08:48:38.261Z"
+        reference: if any
+    documents:
+      parent: true
+      list:
+        - url:
+            description: Document URL.
+            required: required
+            usage: "https://invoice_url"
+            reference: if any
+          label:
+            description: Document label.
+            required: required
+            usage: "Invoice"
+            reference: if any

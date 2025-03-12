@@ -1,0 +1,196 @@
+context:
+  parent: true
+  domain:
+    description: updated domain namespace is https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+    required: required
+    usage: "ONDC:RET10"
+    reference: if any
+  action:
+    description: API action type
+    required: required
+    usage: "on_search"
+    reference: if any
+  country:
+    description: country code
+    required: required
+    usage: "IND"
+    reference: if any
+  core_version:
+    description: ONDC core version
+    required: required
+    usage: "1.2.0"
+    reference: if any
+  bap_id:
+    description: buyer app ID
+    required: required
+    usage: "buyerNP.com"
+    reference: if any
+  bap_uri:
+    description: buyer app URI
+    required: required
+    usage: "https://buyerNP.com/ondc"
+    reference: if any
+  transaction_id:
+    description: unique transaction ID
+    required: required
+    usage: "169c2fd2-d34a-4757-a80c-c7d3131f2c20"
+    reference: if any
+  message_id:
+    description: unique message ID
+    required: required
+    usage: "M1"
+    reference: if any
+  timestamp:
+    description: timestamp for request
+    required: required
+    usage: "2025-01-14T18:30:01.247Z"
+    reference: if any
+  bpp_id:
+    description: seller app ID
+    required: required
+    usage: "sellerNP.com"
+    reference: if any
+  ttl:
+    description: time-to-live for request
+    required: required
+    usage: "PT30S"
+    reference: if any
+  city:
+    description: city code
+    required: required
+    usage: "std:022"
+    reference: if any
+message:
+  parent: true
+  catalog:
+    parent: true
+    bpp/descriptor:
+      parent: true
+      descriptor:
+        description: descriptor for seller NP
+        required: required
+        usage: "Seller NP"
+        reference: if any
+      symbol:
+        description: logo or image for seller NP
+        required: required
+        usage: "https://sellerNP.com/images/np.png"
+        reference: if any
+    bpp/providers:
+      parent: true
+      id:
+        description: unique id for provider
+        required: required
+        usage: "1"
+        reference: if any
+      time:
+        label:
+          description: enum - "enable" (default), "disable"
+          required: required
+          usage: "enable"
+          reference: if any
+        timestamp:
+          description: timestamp when the snapshot for this provider was generated
+          required: required
+          usage: "2025-01-13T09:48:10.825Z"
+          reference: if any
+      fulfillments:
+        description: provider level fulfillment options
+        required: required
+        usage: "-"
+        reference: if any
+      contact:
+        description: contact details for merchant
+        required: required
+        usage: "-"
+        reference: if any
+      phone:
+        description: valid 10 digit phone number
+        required: required
+        usage: "9594663710"
+        reference: if any
+      email:
+        description: email ID of merchant
+        required: required
+        usage: "15@wfstore.in"
+        reference: if any
+      ttl:
+        description: ISO8601 duration format for validity of provider catalog
+        required: required
+        usage: "P1D"
+        reference: if any
+      locations:
+        description: provider locations
+        required: required
+        usage: "L1"
+        reference: if any
+        time:
+          label:
+            description: enum - "enable", "disable"
+            required: required
+            usage: "enable"
+            reference: if any
+          timestamp:
+            description: timestamp for location event
+            required: required
+            usage: "2025-01-13T09:48:10.825Z"
+            reference: if any
+      address:
+        street:
+          description: street address
+          required: required
+          usage: "1 & 2,AMAR JYOTI CHS.BLDG.,OPP.NAND KRIPA HALL"
+          reference: if any
+        locality:
+          description: locality name
+          required: required
+          usage: "ANDHERI FOUR BUNGLOW AMAR JYOTI CHS"
+          reference: if any
+        city:
+          description: city name
+          required: required
+          usage: "Mumbai"
+          reference: if any
+        state:
+          description: state name
+          required: required
+          usage: "Maharashtra"
+          reference: if any
+        area_code:
+          description: area code
+          required: required
+          usage: "400053"
+          reference: if any
+      items:
+        descriptor:
+          name:
+            description: item name
+            required: required
+            usage: "Plain Atta"
+            reference: if any
+          code:
+            description: unique code for item
+            required: required
+            usage: "1:XXXXXXXXXXXXX"
+            reference: if any
+          symbol:
+            description: item image URL
+            required: required
+            usage: "https://sellerNP.com/images/i1.png"
+            reference: if any
+        price:
+          currency:
+            description: currency type
+            required: required
+            usage: "INR"
+            reference: if any
+          value:
+            description: item price
+            required: required
+            usage: "100"
+            reference: if any
+        category_id:
+          description: category enum reference
+          required: required
+          usage: "Foodgrains"
+          reference: if any

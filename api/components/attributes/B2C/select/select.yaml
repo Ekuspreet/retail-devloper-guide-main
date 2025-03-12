@@ -1,0 +1,129 @@
+context:
+  parent: true
+  domain:
+    description: Updated domain namespace.
+    required: required
+    usage: "ONDC:RET10"
+    reference: if any
+  action:
+    description: Type of action being performed.
+    required: required
+    usage: "select"
+    reference: if any
+  location:
+    parent: true
+    country:
+      code:
+        description: Country code for identifying the country of operation.
+        required: required
+        usage: "IND"
+        reference: if any
+    city:
+      code:
+        description: City code for search identifying seller locations.
+        required: required
+        usage: "std:080"
+        reference: if any
+  version:
+    description: API version used.
+    required: required
+    usage: "1.2.0"
+    reference: if any
+  bap_id:
+    description: Subscriber ID for the buyer app.
+    required: required
+    usage: "buyerNP.com"
+    reference: if any
+  bap_uri:
+    description: Subscriber URI for the buyer app.
+    required: required
+    usage: "https://buyerNP.com/ondc"
+    reference: if any
+  bpp_id:
+    description: Subscriber ID for the seller app.
+    required: required
+    usage: "sellerNP.com"
+    reference: if any
+  bpp_uri:
+    description: Subscriber URI for the seller app.
+    required: required
+    usage: "https://sellerNP.com/ondc"
+    reference: if any
+  transaction_id:
+    description: Unique identifier for the transaction.
+    required: required
+    usage: "6c4feca7-87e4-4437-965c-5f7bd25bc4f3"
+    reference: if any
+  message_id:
+    description: Unique identifier for the message.
+    required: required
+    usage: "M2"
+    reference: if any
+  timestamp:
+    description: RFC3339 compliant timestamp.
+    required: required
+    usage: "2024-12-23T06:58:34.035Z"
+    reference: if any
+  ttl:
+    description: Validity of the message.
+    required: required
+    usage: "PT30S"
+    reference: if any
+
+message:
+  parent: true
+  order:
+    parent: true
+    provider:
+      parent: true
+      id:
+        description: Unique identifier for the provider.
+        required: required
+        usage: "P1"
+        reference: if any
+      locations:
+        parent: true
+        items:
+          - id:
+              description: Unique identifier for the location.
+              required: required
+              usage: "L1"
+              reference: if any
+    items:
+      parent: true
+      list:
+        - id:
+            description: Unique identifier for the item.
+            required: required
+            usage: "P1"
+            reference: if any
+          quantity:
+            count:
+              description: Number of items requested.
+              required: required
+              usage: "1"
+              reference: if any
+          location_id:
+            description: Location identifier for item fulfillment.
+            required: required
+            usage: "L1"
+            reference: if any
+    fulfillments:
+      parent: true
+      list:
+        - end:
+            parent: true
+            location:
+              parent: true
+              gps:
+                description: GPS coordinates for fulfillment location.
+                required: required
+                usage: "13.077430,77.591444"
+                reference: if any
+              address:
+                parent: true
+                area_code:
+                  description: Postal code for fulfillment location.
+                  required: required
+                  usage: "560065"
+                  reference: if any

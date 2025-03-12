@@ -1,0 +1,91 @@
+context:
+  parent: true
+  domain:
+    description: Updated domain namespace.
+    required: required
+    usage: "ONDC:RET10"
+    reference: if any
+  action:
+    description: Type of action being performed.
+    required: required
+    usage: "search"
+    reference: if any
+  country:
+    description: Country code for identifying the country of operation.
+    required: required
+    usage: "IND"
+    reference: if any
+  core_version:
+    description: API core version used.
+    required: required
+    usage: "1.2.0"
+    reference: if any
+  bap_id:
+    description: Subscriber ID for the buyer app.
+    required: required
+    usage: "buyerNP.com"
+    reference: if any
+  bap_uri:
+    description: Subscriber URI for the buyer app.
+    required: required
+    usage: "https://buyerNP.com/ondc"
+    reference: if any
+  transaction_id:
+    description: Unique identifier for the transaction.
+    required: required
+    usage: "169c2fd2-d34a-4757-a80c-c7d3131f2c20"
+    reference: if any
+  message_id:
+    description: Unique identifier for the message.
+    required: required
+    usage: "M1"
+    reference: if any
+  timestamp:
+    description: RFC3339 compliant timestamp.
+    required: required
+    usage: "2024-12-10T06:22:12.094Z"
+    reference: if any
+  ttl:
+    description: Validity of the message.
+    required: required
+    usage: "PT30S"
+    reference: if any
+  city:
+    description: City code for search identifying seller locations.
+    required: required
+    usage: "std:022"
+    reference: if any
+
+message:
+  parent: true
+  intent:
+    parent: true
+    payment:
+      parent: true
+      '@ondc/org/buyer_app_finder_fee_type':
+        description: Buyer NP finder fee type.
+        required: required
+        usage: "percent"
+        reference: if any
+      '@ondc/org/buyer_app_finder_fee_amount':
+        description: Buyer NP finder fee amount.
+        required: required
+        usage: "3"
+        reference: if any
+    tags:
+      - code:
+          description: Tag to indicate catalog increment mode.
+          required: required
+          usage: "catalog_inc"
+          reference: if any
+        list:
+          - code:
+              description: Tag code representing the specific mode.
+              required: required
+              usage: "mode"
+              reference: if any
+            value:
+              description: Tag value indicating the start of incremental search.
+              required: required
+              usage: "start"
+              reference: if any

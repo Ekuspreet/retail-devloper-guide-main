@@ -1,0 +1,80 @@
+search_full_catalog:
+  parent: true
+  $ref: "./search/search_full_catalog.yaml"
+
+search_incremental:
+  parent: true
+  $ref: "./search/search_incremental.yaml"
+
+on_search_full_catalog:
+  parent: true
+  $ref: "./on_search/on_search_full_catalog.yaml"
+
+on_search_incremental:
+  parent: true
+  $ref: "./on_search/on_search_incremental.yaml"
+
+select:
+  parent: true
+  $ref: "./select/select.yaml"  
+
+on_select:
+  parent: true
+  $ref: "./select/on_select.yaml"  
+
+init:
+  parent: true
+  $ref: "./init/init.yaml"  
+
+on_init:
+  parent: true
+  $ref: "./init/on_init.yaml"  
+
+confirm:
+  parent: true
+  $ref: "./confirm/confirm.yaml" 
+
+on_confirm:
+  parent: true
+  $ref: "./confirm/on_confirm.yaml" 
+
+on_status_agent_assigned:
+  parent: true
+  $ref: "./on_status/on_status_agent_assigned.yaml" 
+
+on_status_pending:
+  parent: true
+  $ref: "./on_status/on_status_pending.yaml" 
+
+on_status_packed:
+  parent: true
+  $ref: "./on_status/on_status_packed.yaml" 
+
+on_status_picked:
+  parent: true
+  $ref: "./on_status/on_status_picked.yaml" 
+
+on_status_out_for_delivery:
+  parent: true
+  $ref: "./on_status/on_status_out_for_delivery.yaml" 
+
+on_status_delivered:
+  parent: true
+  $ref: "./on_status/on_status_delivered.yaml" 
+
+cancel:
+  parent: true
+  $ref: "./cancel/cancel.yaml" 
+
+on_cancel:
+  parent: true
+  $ref: "./cancel/on_cancel.yaml" 
+
+update_settlement_part_cancel:
+  parent: true
+  $ref: "./update/update_settlement_part_cancel.yaml" 
+
+update_reverse_qc:
+  parent: true
+  $ref: "./update/update_reverse_qc.yaml" 
+

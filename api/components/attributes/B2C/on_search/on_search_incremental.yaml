@@ -1,0 +1,229 @@
+context:
+  parent: true
+  domain:
+    description: updated domain namespace is https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+    required: required
+    usage: "ONDC:RET10"
+    reference: if any
+  action:
+    description: API action type
+    required: required
+    usage: "on_search"
+    reference: if any
+  country:
+    description: country code
+    required: required
+    usage: "IND"
+    reference: if any
+  core_version:
+    description: ONDC core version
+    required: required
+    usage: "1.2.0"
+    reference: if any
+  bap_id:
+    description: buyer app ID
+    required: required
+    usage: "buyerNP.com"
+    reference: if any
+  bap_uri:
+    description: buyer app URI
+    required: required
+    usage: "https://buyerNP.com/ondc"
+    reference: if any
+  transaction_id:
+    description: unique transaction ID
+    required: required
+    usage: "169c2fd2-d34a-4757-a80c-c7d3131f2c20"
+    reference: if any
+  message_id:
+    description: unique message ID
+    required: required
+    usage: "M1"
+    reference: if any
+  timestamp:
+    description: timestamp for request
+    required: required
+    usage: "2024-12-10T06:24:32.623Z"
+    reference: if any
+  bpp_id:
+    description: seller app ID
+    required: required
+    usage: "sellerNP.com"
+    reference: if any
+  ttl:
+    description: time-to-live for request
+    required: required
+    usage: "PT30S"
+    reference: if any
+  city:
+    description: city code
+    required: required
+    usage: "std:022"
+    reference: if any
+message:
+  parent: true
+  catalog:
+    parent: true
+    bpp/providers:
+      parent: true
+      id:
+        description: unique id for provider
+        required: required
+        usage: "L1"
+        reference: if any
+      items:
+        descriptor:
+          name:
+            description: item name
+            required: required
+            usage: "Plain Atta"
+            reference: if any
+          code:
+            description: unique code for item
+            required: required
+            usage: "1:XXXXXXXXXXXXX"
+            reference: if any
+          symbol:
+            description: item image URL
+            required: required
+            usage: "https://sellerNP.com/images/i1.png"
+            reference: if any
+          short_desc:
+            description: short description
+            required: required
+            usage: "Plain Atta"
+            reference: if any
+          long_desc:
+            description: long description
+            required: required
+            usage: "Plain Atta"
+            reference: if any
+          images:
+            description: image URL list
+            required: required
+            usage: "https://sellerNP.com/images/i1.png"
+            reference: if any
+        price:
+          currency:
+            description: currency type
+            required: required
+            usage: "INR"
+            reference: if any
+          value:
+            description: item price
+            required: required
+            usage: "100"
+            reference: if any
+          maximum_value:
+            description: maximum price
+            required: required
+            usage: "100"
+            reference: if any
+        quantity:
+          unitized:
+            measure:
+              unit:
+                description: unit of measure
+                required: required
+                usage: "kilogram"
+                reference: if any
+              value:
+                description: measure value
+                required: required
+                usage: 3
+                reference: if any
+          available:
+            count:
+              description: available count
+              required: required
+              usage: 99
+              reference: if any
+          maximum:
+            count:
+              description: maximum count
+              required: required
+              usage: 99
+              reference: if any
+        category_id:
+          description: category enum reference
+          required: required
+          usage: "Foodgrains"
+          reference: if any
+        fulfillment_id:
+          description: fulfillment ID
+          required: required
+          usage: "F1"
+          reference: if any
+        location_id:
+          description: location ID
+          required: required
+          usage: "L1"
+          reference: if any
+        "@ondc/org/returnable":
+          description: returnable flag
+          required: required
+          usage: true
+          reference: if any
+        "@ondc/org/cancellable":
+          description: cancellable flag
+          required: required
+          usage: true
+          reference: if any
+        "@ondc/org/return_window":
+          description: return window duration
+          required: required
+          usage: "P7D"
+          reference: if any
+        "@ondc/org/seller_pickup_return":
+          description: seller pickup return flag
+          required: required
+          usage: false
+          reference: if any
+        "@ondc/org/time_to_ship":
+          description: shipping time
+          required: required
+          usage: "PT5M"
+          reference: if any
+        "@ondc/org/available_on_cod":
+          description: cash on delivery available
+          required: required
+          usage: false
+          reference: if any
+        "@ondc/org/contact_details_consumer_care":
+          description: consumer care contact details
+          required: required
+          usage: "Ramesh,ramesh@abc.com,18004254444"
+          reference: if any
+        time:
+          label:
+            description: enum - "enable", "disable"
+            required: required
+            usage: "enable"
+            reference: if any
+          timestamp:
+            description: timestamp
+            required: required
+            usage: "2024-12-10T06:24:32.623Z"
+            reference: if any
+        tags:
+          - code:
+              description: tag code
+              required: required
+              usage: "origin"
+              reference: if any
+            list:
+              - code:
+                  description: list code
+                  required: required
+                  usage: "country"
+                  reference: if any
+                value:
+                  description: list value
+                  required: required
+                  usage: "IND"
+                  reference: if any
+        id:
+          description: unique item ID
+          required: required
+          usage: "P1"
+          reference: if any
