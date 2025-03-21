@@ -4,7 +4,7 @@ info:
   description:
     ONDC Protocol API specification, which includes statutory requirements for packaged commodities and pre-packaged food
     This is an adaptation of Beckn Core version 0.9.3
-  version: 1.2.0
+  version: 1.2.5
 security:
   - SubscriberAuth: []
   - GatewaySubscriberAuth: []
@@ -22,6 +22,7 @@ paths:
           application/json:
             schema:
               $ref: "./ondc_schema/search.yaml"
+              additionalProperties: false
       responses:
         "200":
           description: Acknowledgement of message received
@@ -52,6 +53,7 @@ paths:
           application/json:
             schema:
               $ref: "./ondc_schema/select.yaml"
+              additionalProperties: false
       responses:
         "200":
           description: Acknowledgement of message received
@@ -82,6 +84,7 @@ paths:
           application/json:
             schema:
               $ref: "./ondc_schema/init.yaml"
+              additionalProperties: false
       responses:
         "200":
           description: Acknowledgement of message received
@@ -112,6 +115,7 @@ paths:
           application/json:
             schema:
               $ref: "./ondc_schema/confirm.yaml"
+              additionalProperties: false
       responses:
         "200":
           description: Acknowledgement of message received
@@ -142,6 +146,7 @@ paths:
           application/json:
             schema:
               $ref: "./ondc_schema/status.yaml"
+              additionalProperties: false
       responses:
         "200":
           description: Acknowledgement of message received
@@ -172,6 +177,7 @@ paths:
           application/json:
             schema:
               $ref: "./ondc_schema/track.yaml"
+              additionalProperties: false
       responses:
         "200":
           description: Acknowledgement of message received
@@ -202,6 +208,7 @@ paths:
           application/json:
             schema:
               $ref: "./ondc_schema/cancel.yaml"
+              additionalProperties: false
       responses:
         "200":
           description: Acknowledgement of message received
@@ -232,6 +239,7 @@ paths:
           application/json:
             schema:
               $ref: "./ondc_schema/update.yaml"
+              additionalProperties: false
       responses:
         "200":
           description: Acknowledgement of message received
@@ -262,6 +270,7 @@ paths:
           application/json:
             schema:
               $ref: "./ondc_schema/on_search.yaml"
+              additionalProperties: false
       responses:
         "200":
           description: Acknowledgement of message received
@@ -292,6 +301,7 @@ paths:
           application/json:
             schema:
               $ref: "./ondc_schema/on_select.yaml"
+              additionalProperties: false
       responses:
         "200":
           description: Acknowledgement of message received
@@ -322,6 +332,7 @@ paths:
           application/json:
             schema:
               $ref: "./ondc_schema/on_init.yaml"
+              additionalProperties: false
       responses:
         "200":
           description: Acknowledgement of message received
@@ -352,6 +363,7 @@ paths:
           application/json:
             schema:
               $ref: "./ondc_schema/on_confirm.yaml"
+              additionalProperties: false
       responses:
         "200":
           description: Acknowledgement of message received
@@ -382,6 +394,7 @@ paths:
           application/json:
             schema:
               $ref: "./ondc_schema/on_track.yaml"
+              additionalProperties: false
       responses:
         "200":
           description: Acknowledgement of message received
@@ -412,6 +425,7 @@ paths:
           application/json:
             schema:
               $ref: "./ondc_schema/on_cancel.yaml"
+              additionalProperties: false
       responses:
         "200":
           description: Acknowledgement of message received
@@ -442,6 +456,7 @@ paths:
           application/json:
             schema:
               $ref: "./ondc_schema/on_update.yaml"
+              additionalProperties: false
       responses:
         "200":
           description: Acknowledgement of message received
@@ -472,6 +487,7 @@ paths:
           application/json:
             schema:
               $ref: "./ondc_schema/on_status.yaml"
+              additionalProperties: false
       responses:
         "200":
           description: Acknowledgement of message received

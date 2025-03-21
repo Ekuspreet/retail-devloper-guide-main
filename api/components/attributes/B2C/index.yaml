@@ -1,18 +1,10 @@
-search_full_catalog:
+search:
   parent: true
-  $ref: "./search/search_full_catalog.yaml"
+  $ref: "./search/search.yaml"
 
-search_incremental:
+on_search:
   parent: true
-  $ref: "./search/search_incremental.yaml"
-
-on_search_full_catalog:
-  parent: true
-  $ref: "./on_search/on_search_full_catalog.yaml"
-
-on_search_incremental:
-  parent: true
-  $ref: "./on_search/on_search_incremental.yaml"
+  $ref: "./search/on_search.yaml"
 
 select:
   parent: true
@@ -38,30 +30,6 @@ on_confirm:
   parent: true
   $ref: "./confirm/on_confirm.yaml" 
 
-on_status_agent_assigned:
-  parent: true
-  $ref: "./on_status/on_status_agent_assigned.yaml" 
-
-on_status_pending:
-  parent: true
-  $ref: "./on_status/on_status_pending.yaml" 
-
-on_status_packed:
-  parent: true
-  $ref: "./on_status/on_status_packed.yaml" 
-
-on_status_picked:
-  parent: true
-  $ref: "./on_status/on_status_picked.yaml" 
-
-on_status_out_for_delivery:
-  parent: true
-  $ref: "./on_status/on_status_out_for_delivery.yaml" 
-
-on_status_delivered:
-  parent: true
-  $ref: "./on_status/on_status_delivered.yaml" 
-
 cancel:
   parent: true
   $ref: "./cancel/cancel.yaml" 
@@ -70,12 +38,22 @@ on_cancel:
   parent: true
   $ref: "./cancel/on_cancel.yaml" 
 
-update_settlement_part_cancel:
+on_status:
   parent: true
-  $ref: "./update/update_settlement_part_cancel.yaml" 
+  $ref: "./on_status/on_status.yaml" 
 
-update_reverse_qc:
+track:
   parent: true
-  $ref: "./update/update_reverse_qc.yaml" 
+  $ref: "./track/track.yaml"
 
+on_track:
+  parent: true
+  $ref: "./track/on_track.yaml"  
 
+update:
+  parent: true
+  $ref: "./update/update.yaml"
+
+on_update:
+  parent: true
+  $ref: "./update/on_update.yaml" 
