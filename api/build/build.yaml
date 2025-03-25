@@ -3361,6 +3361,16 @@ x-tags:
               Required when the request is for full catalog refresh.
             reference: <PR/Issue/Discussion Links md format text>
             list:
+              - code: PAYLOAD_TYPE
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+            required: required
+          - code: CATALOG_INC
+            description: >-
+              It is used communicate the intent for a incremental catalog
+              refresh. Required when the request is for incremental refresh.
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
               - code: MODE
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
@@ -3371,16 +3381,6 @@ x-tags:
                   at the seller NP discretion;
                 reference: <PR/Issue/Discussion Links md format text>
               - code: END_TIME
-                description: Description about the tags
-                reference: <PR/Issue/Discussion Links md format text>
-            required: required
-          - code: CATALOG_INC
-            description: >-
-              It is used communicate the intent for a incremental catalog
-              refresh. Required when the request is for incremental refresh.
-            reference: <PR/Issue/Discussion Links md format text>
-            list:
-              - code: PAYLOAD_TYPE
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
             required: required
@@ -96181,7 +96181,7 @@ x-attributes:
                 required: Required
                 usage: 69b685813a63a8114c7c40e4b17dd08c
                 reference: if any
-            fulfillments['end']['location']':
+            fulfillments['end']['location']:
               parent: true
               gps:
                 description: Provides latitude and longitude of the fulfillment location

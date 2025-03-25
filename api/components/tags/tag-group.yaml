@@ -4,13 +4,13 @@ intent:
       description: It is used communicate the intent for a full catalog refresh. Required when the request is for full catalog refresh.
       reference: <PR/Issue/Discussion Links md format text>
       list:
-        $ref: "./tag.yaml#/catalog_inc"
+        $ref: "./tag.yaml#/catalog_full"
       required: required
     - code: CATALOG_INC
       description: It is used communicate the intent for a incremental catalog refresh. Required when the request is for incremental refresh.
       reference: <PR/Issue/Discussion Links md format text>
       list:
-        $ref: "./tag.yaml#/catalog_full"
+        $ref: "./tag.yaml#/catalog_inc"
       required: required
 providers:
   tags:
