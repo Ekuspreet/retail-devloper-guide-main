@@ -12,7 +12,11 @@ on_search:
 on_select: &ref0
   message:
     order:
-      $ref: "./tag-group.yaml#/order/items"
+      items:
+        $ref: "./tag-group.yaml#/order/items"
+      fulfillments:
+        $ref: "./tag-group.yaml#/order/on_select_order_fulfillments"
+# Doubt : Do i need to change init, now that changes in it's references are made? or it carries forward?
 init: *ref0
 on_init: &ref0
   message:

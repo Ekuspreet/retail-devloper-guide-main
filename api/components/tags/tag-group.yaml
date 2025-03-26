@@ -1,55 +1,61 @@
 intent:
   tags:
-    - code: CATALOG_FULL
+    - code: catalog_full
       description: It is used communicate the intent for a full catalog refresh. Required when the request is for full catalog refresh.
       reference: <PR/Issue/Discussion Links md format text>
       list:
         $ref: "./tag.yaml#/catalog_full"
       required: required
-    - code: CATALOG_INC
+    - code: catalog_inc
       description: It is used communicate the intent for a incremental catalog refresh. Required when the request is for incremental refresh.
       reference: <PR/Issue/Discussion Links md format text>
       list:
         $ref: "./tag.yaml#/catalog_inc"
       required: required
+    - code: bap_features
+      description: It allows a dynamic mechanism for BNP & SNP to mutually discover the features.
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/bap_features"
+      required: optional
 bpp_descriptor:
   tags:
-    - code: BPP_TERMS
+    - code: bpp_terms
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       required: required
       list:
-        - code: NP_TYPE
+        - code: np_type
           description: Allowed Values - [ISN, MSN]
           reference: <PR/Issue/Discussion Links md format text>
 bpp_providers:
   categories:
     tags: 
-    - code: TYPE
+    - code: type
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       list:
         $ref: "./tag.yaml#/type"
       required: required
-    - code: TIMING
+    - code: timing
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       required: required
       list:
         $ref: "./tag.yaml#/timing"
-    - code: DISPLAY
+    - code: display
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       required: required
       list:
         $ref: "./tag.yaml#/display"
-    - code: CONFIG
+    - code: config
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       required: required
       list:
         $ref: "./tag.yaml#/config"
-    - code: ATTR
+    - code: attr
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       required: required
@@ -57,55 +63,55 @@ bpp_providers:
         $ref: "./tag.yaml#/attr"
   items:
       tags:
-        - code: ORIGIN
+        - code: origin
           description: Description about the tags
           reference: <PR/Issue/Discussion Links md format text>
           required: required
           list:
             $ref: "./tag.yaml#/origin"
-        - code: CUSTOM_GROUP
+        - code: custom_group
           description: Description about the tags
           reference: <PR/Issue/Discussion Links md format text>
           required: required
           list:
             $ref: "./tag.yaml#/custom_group"
-        - code: CONFIG
+        - code: config
           description: Description about the tags
           reference: <PR/Issue/Discussion Links md format text>
           required: required
           list:
             $ref: "./tag.yaml#/item_config"
-        - code: TIMING
+        - code: timing
           description: Description about the tags
           reference: <PR/Issue/Discussion Links md format text>
           required: required
           list:
             $ref: "./tag.yaml#/timing"
-        - code: VEG_NONVEG
+        - code: veg_nonveg
           description: Description about the tags
           reference: <PR/Issue/Discussion Links md format text>
           required: required
           list:
             $ref: "./tag.yaml#/veg_nonveg"
-        - code: PARENT
+        - code: parent
           description: Description about the tags
           reference: <PR/Issue/Discussion Links md format text>
           required: required
           list:
             $ref: "./tag.yaml#/parent"
-        - code: CHILD
+        - code: child
           description: Description about the tags
           reference: <PR/Issue/Discussion Links md format text>
           required: required
           list:
             $ref: "./tag.yaml#/child"
-        - code: TYPE
+        - code: type
           description: Description about the tags
           reference: <PR/Issue/Discussion Links md format text>
           required: required
           list:
             $ref: "./tag.yaml#/type"
-        - code: ATTRIBUTE
+        - code: attribute
           description: Description about the tags
           reference: <PR/Issue/Discussion Links md format text>
           required: required
@@ -113,19 +119,19 @@ bpp_providers:
             $ref: "./tag.yaml#/attribute"
   offers:
     tags:
-      - code: OFFER
+      - code: offer
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         required: required
         list:
          $ref: "./tag.yaml#/offer"
-      - code: PARENT
+      - code: parent
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         required: required
         list:
           $ref: "./tag.yaml#/parent"
-      - code: TYPE
+      - code: type
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         required: required
@@ -133,66 +139,66 @@ bpp_providers:
           $ref: "./tag.yaml#/type"
   creds:
     tags:
-      - code: VERIFICATION
+      - code: verification
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         required: required
         list:
           $ref: "./tag.yaml#/verification"
   tags:
-    - code: SERVICEABILITY
+    - code: serviceability
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       required: required
       list:
         $ref: "./tag.yaml#/serviceability"
-    - code: ORDER_VALUE
+    - code: order_value
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       required: required
       list:
         $ref: "./tag.yaml#/order_value"
-    - code: CATALOG_LINK
+    - code: catalog_link
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       required: required
       list:
         $ref: "./tag.yaml#/catalog_link"
-    - code: TIMING
+    - code: timing
       description: Provider operation timings
       reference: <PR/Issue/Discussion Links md format text>
       list:
-        $ref: "./tag.yaml#/timing"
+        $ref: "./tag.yaml#/provider_timing"
       required: required
 order:
   items:
     tags:
-      - code: TYPE
+      - code: type
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         required: required
         list:
           $ref: "./tag.yaml#/type"
-      - code: PARENT
+      - code: parent
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         required: required
         list:
           $ref: "./tag.yaml#/parent"
   tags:
-    - code: BUYER_ID
+    - code: buyer_id
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       required: required
       list:
         $ref: "./tag.yaml#/buyer_id"
-    - code: BPP_TERMS
+    - code: bpp_terms
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       required: required
       list:
         $ref: "./tag.yaml#/bpp_terms"
-    - code: BAP_TERMS
+    - code: bap_terms
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       required: required
@@ -200,37 +206,37 @@ order:
         $ref: "./tag.yaml#/bap_terms"
   fulfillments:
     tags:
-      - code: CANCEL_REQUEST
+      - code: cancel_request
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         required: optional
         list:
           $ref: "./tag.yaml#/cancel_request"
-      - code: QUOTE_TRAIL
+      - code: quote_trail
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         required: optional
         list:
           $ref: "./tag.yaml#/quote_trail"
-      - code: RETURN_REQUEST
+      - code: return_request
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         required: optional
         list:
           $ref: "./tag.yaml#/return_request"
-      - code: IGM_REQUEST
+      - code: igm_request
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         required: optional
         list:
           $ref: "./tag.yaml#/igm_request"
-      - code: ROUTING
+      - code: routing
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         required: optional
         list:
           $ref: "./tag.yaml#/routing"
-      - code: TRACKING
+      - code: tracking
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         required: optional
@@ -238,13 +244,13 @@ order:
           $ref: "./tag.yaml#/tracking"
   quote:
     tags:
-      - code: TYPE
+      - code: type
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         required: required
         list:
           $ref: "./tag.yaml#/type"
-      - code: PARENT
+      - code: parent
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         required: required
@@ -252,7 +258,7 @@ order:
          $ref: "./tag.yaml#/parent"
 tracking:
   tags:
-    - code: PATH
+    - code: path
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       required: required
@@ -260,21 +266,54 @@ tracking:
         $ref: "./tag.yaml#/path"
 order_confirm_fulfillments:
   tags:
-    - code: IGM_REQUEST
+    - code: igm_request
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       required: optional
       list:
         $ref: "./tag.yaml#/igm_request"
-    - code: ROUTING
+    - code: routing
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       required: optional
       list:
         $ref: "./tag.yaml#/routing"
-    - code: TRACKING
+    - code: tracking
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       required: optional
       list:
         $ref: "./tag.yaml#/tracking"
+on_select_order_fulfillments:
+  tags:
+    - code: order_details
+      list:
+        - code: weight_unit
+          description: unit of weight
+          value: kilogram
+          reference: <PR/Issue/Discussion Links md format text>
+
+        - code: weight_value
+          description: value of the weight
+          value: "3.0"
+          reference: <PR/Issue/Discussion Links md format text>
+
+        - code: dim_unit
+          description: unit of dimension
+          value: centimeter
+          reference: <PR/Issue/Discussion Links md format text>
+
+        - code: length
+          description: length of the item
+          value: "1.0"
+          reference: <PR/Issue/Discussion Links md format text>
+
+        - code: breadth
+          description: breadth of the item
+          value: "1.0"
+          reference: <PR/Issue/Discussion Links md format text>
+
+        - code: height
+          description: height of the item
+          value: "1.0"
+          reference: <PR/Issue/Discussion Links md format text>
