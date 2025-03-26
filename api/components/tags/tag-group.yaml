@@ -1,43 +1,34 @@
 intent:
   tags:
-    - code: CATALOG_FULL
+    - code: catalog_full
       description: It is used communicate the intent for a full catalog refresh. Required when the request is for full catalog refresh.
-      reference: <PR/Issue/Discussion Links md format text>
-      list:
-        $ref: "./tag.yaml#/catalog_inc"
-      required: required
-    - code: CATALOG_INC
-      description: It is used communicate the intent for a incremental catalog refresh. Required when the request is for incremental refresh.
       reference: <PR/Issue/Discussion Links md format text>
       list:
         $ref: "./tag.yaml#/catalog_full"
       required: required
-providers:
+    - code: catalog_inc
+      description: It is used communicate the intent for a incremental catalog refresh. Required when the request is for incremental refresh.
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/catalog_inc"
+      required: required
+    - code: bap_features
+      description: It is a dynamic mechanism for BNP & SNP to mutually discover the features supported
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/bap_features"
+      required: optional
+bpp_descriptor:
   tags:
-    - code: SERVICEABILITY
+    - code: BPP_TERMS
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       required: required
       list:
-        $ref: "./tag.yaml#/serviceability"
-    - code: ORDER_VALUE
-      description: Description about the tags
-      reference: <PR/Issue/Discussion Links md format text>
-      required: required
-      list:
-        $ref: "./tag.yaml#/order_value"
-    - code: CATALOG_LINK
-      description: Description about the tags
-      reference: <PR/Issue/Discussion Links md format text>
-      required: required
-      list:
-        $ref: "./tag.yaml#/catalog_link"
-    - code: TIMING
-      description: Provider operation timings
-      reference: <PR/Issue/Discussion Links md format text>
-      list:
-        $ref: "./tag.yaml#/provider_timing"
-      required: required
+        - code: NP_TYPE
+          description: Allowed Values - [ISN, MSN]
+          reference: <PR/Issue/Discussion Links md format text>
+bpp_providers:
   categories:
     tags: 
     - code: TYPE
@@ -160,6 +151,31 @@ providers:
         required: required
         list:
           $ref: "./tag.yaml#/verification"
+  tags:
+    - code: SERVICEABILITY
+      description: Description about the tags
+      reference: <PR/Issue/Discussion Links md format text>
+      required: required
+      list:
+        $ref: "./tag.yaml#/serviceability"
+    - code: ORDER_VALUE
+      description: Description about the tags
+      reference: <PR/Issue/Discussion Links md format text>
+      required: required
+      list:
+        $ref: "./tag.yaml#/order_value"
+    - code: CATALOG_LINK
+      description: Description about the tags
+      reference: <PR/Issue/Discussion Links md format text>
+      required: required
+      list:
+        $ref: "./tag.yaml#/catalog_link"
+    - code: TIMING
+      description: Provider operation timings
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/provider_timing"
+      required: required
 order:
   items:
     tags:
@@ -261,27 +277,11 @@ tracking:
       required: required
       list:
         $ref: "./tag.yaml#/path"
-bpp_descriptor:
+on_select_order_fulfillments:
   tags:
-    - code: BPP_TERMS
-      description: Description about the tags
-      reference: <PR/Issue/Discussion Links md format text>
-      required: required
-      list:
-        - code: NP_TYPE
-          description: Allowed Values - [ISN, MSN]
-          reference: <PR/Issue/Discussion Links md format text>
-bpp_providers:
-  tags:
-    - code: TYPE
-      description: Description about the tags
-      reference: <PR/Issue/Discussion Links md format text>
-      required: required
-      list:
-        - code: TYPE
-          description: Allowed Values - [variant_group, custom_group, custom_menu]
-          reference: <PR/Issue/Discussion Links md format text>
-
+    - code: order_details
+      list: 
+        $ref: "./tag.yaml#/order_details"
 order_confirm_fulfillments:
   tags:
     - code: IGM_REQUEST

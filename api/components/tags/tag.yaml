@@ -1,3 +1,158 @@
+bap_features:
+  - code: "001"
+    description: Item availability
+    reference: <pr/issue/discussion links md format text>
+  - code: "002"
+    description: Self-Pickup
+    reference: <pr/issue/discussion links md format text>
+  - code: "003"
+    description: Slotted delivery
+    reference: <pr/issue/discussion links md format text>
+  - code: "004"
+    description: Fulfillment by BNP
+    reference: <pr/issue/discussion links md format text>
+  - code: "005"
+    description: Force cancellation
+    reference: <pr/issue/discussion links md format text>
+  - code: "006"
+    description: Return with pickup
+    reference: <pr/issue/discussion links md format text>
+  - code: "007"
+    description: SNP collecting payment
+    reference: <pr/issue/discussion links md format text>
+  - code: "008"
+    description: Minimum order value
+    reference: <pr/issue/discussion links md format text>
+  - code: "0091"
+    description: Offer (discount)
+    reference: <pr/issue/discussion links md format text>
+  - code: "0092"
+    description: Offer (buyXgetY)
+    reference: <pr/issue/discussion links md format text>
+  - code: "0093"
+    description: Offer (freebie)
+    reference: <pr/issue/discussion links md format text>
+  - code: "0094"
+    description: Offer (slab)
+    reference: <pr/issue/discussion links md format text>
+  - code: "0095"
+    description: Offer (combo)
+    reference: <pr/issue/discussion links md format text>
+  - code: "0096"
+    description: Offer (delivery)
+    reference: <pr/issue/discussion links md format text>
+  - code: "0097"
+    description: Offer (exchange)
+    reference: <pr/issue/discussion links md format text>
+  - code: "0098"
+    description: Offer (financing)
+    reference: <pr/issue/discussion links md format text>
+  - code: "0099"
+    description: Purchase Finance by BNP
+    reference: <pr/issue/discussion links md format text>
+  - code: "00A"
+    description: Commercial model for BNP/SNP
+    reference: <pr/issue/discussion links md format text>
+  - code: "00B"
+    description: Replacement flow
+    reference: <pr/issue/discussion links md format text>
+  - code: "00C"
+    description: Exchange flow
+    reference: <pr/issue/discussion links md format text>
+  - code: "00D"
+    description: Cancel Return Request
+    reference: <pr/issue/discussion links md format text>
+  - code: "00E"
+    description: Update sale invoice
+    reference: <pr/issue/discussion links md format text>
+  - code: "00F"
+    description: Update delivery address
+    reference: <pr/issue/discussion links md format text>
+  - code: "010"
+    description: Update delivery authorization
+    reference: <pr/issue/discussion links md format text>
+  - code: "011"
+    description: Buyer instructions
+    reference: <pr/issue/discussion links md format text>
+  - code: "012"
+    description: Cash on delivery (COD) order
+    reference: <pr/issue/discussion links md format text>
+  - code: "013"
+    description: Order price adjustment, not tied to return or cancel
+    reference: <pr/issue/discussion links md format text>
+  - code: "014"
+    description: Cross-category order flow
+    reference: <pr/issue/discussion links md format text>
+  - code: "015"
+    description: Breakup of fulfillment level taxes in quote
+    reference: <pr/issue/discussion links md format text>
+  - code: "016"
+    description: Customization of input type text
+    reference: <pr/issue/discussion links md format text>
+  - code: "017"
+    description: Seller Creds
+    reference: <pr/issue/discussion links md format text>
+  - code: "018"
+    description: Cross-linking make-to-order item in quote_trail
+    reference: <pr/issue/discussion links md format text>
+  - code: "019"
+    description: Streamline fulfillment attributes for hyperlocal
+    reference: <pr/issue/discussion links md format text>
+  - code: "01A"
+    description: Item unitized count
+    reference: <pr/issue/discussion links md format text>
+  - code: "01B"
+    description: Minimum item quantity
+    reference: <pr/issue/discussion links md format text>
+  - code: "01C"
+    description: Identification of on-network LSP
+    reference: <pr/issue/discussion links md format text>
+  - code: "01D"
+    description: Option for multi-fulfillment order
+    reference: <pr/issue/discussion links md format text>
+  - code: "01E"
+    description: Cancellation terms
+    reference: <pr/issue/discussion links md format text>
+  - code: "01F"
+    description: Codified static terms
+    reference: <pr/issue/discussion links md format text>
+  - code: "020"
+    description: Fulfillment delay
+    reference: <pr/issue/discussion links md format text>
+  - code: "021"
+    description: Catalog as download link
+    reference: <pr/issue/discussion links md format text>
+  - code: "022"
+    description: BNP promotions planned
+    reference: <pr/issue/discussion links md format text>
+  - code: "023"
+    description: Full catalog refresh (search by item)
+    reference: <pr/issue/discussion links md format text>
+  - code: "024"
+    description: Full catalog refresh (search by fulfillment end location)
+    reference: <pr/issue/discussion links md format text>
+  - code: "025"
+    description: BNP demand signals
+    reference: <pr/issue/discussion links md format text>
+order_details:
+  - code: weight_unit
+    description: unit of weight
+    reference: <pr/issue/discussion links md format text>
+  - code: weight_value
+    description: value of the weight
+    reference: <pr/issue/discussion links md format text>
+  - code: dim_unit
+    description: unit of dimension
+    reference: <pr/issue/discussion links md format text>
+  - code: length
+    description: length of the item
+    reference: <pr/issue/discussion links md format text>
+  - code: breadth
+    description: breadth of the item
+    reference: <pr/issue/discussion links md format text>
+  - code: height
+    description: height of the item
+    reference: <pr/issue/discussion links md format text>
 catalog_full:
   - code: PAYLOAD_TYPE
     description: Description about the tags
@@ -17,26 +172,29 @@ type:
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
 timing:
+# Doubt : Will type and location come in timing, Not in 1.2.5
   - code: TYPE
     description: timing for fulfillment type, enum - "Order" (online order processing timings), "Delivery" (order shipment timings, will be same as delivery timings for hyperlocal), "Self-Pickup" (self-pickup timings); example shows store open 24x7- Monday to Sunday (0000 - 2359) | (or) | on_search_Fashion - value "ALL" means means same timings for online order processing, shipment, self-pickup (as applicable)
     reference: <PR/Issue/Discussion Links md format text>
   - code: LOCATION
     description: location id for provider
     reference: <PR/Issue/Discussion Links md format text>
-  - code: DAY_FROM
+  - code: day_from
     description: valid value - day of week ("1" - Monday, "7" - Sunday)
     reference: <PR/Issue/Discussion Links md format text>
-  - code: DAY_TO
+  - code: day_to
     description: valid value - day of week ("1" - Monday, "7" - Sunday)
     reference: <PR/Issue/Discussion Links md format text>
-  - code: TIME_FROM
+  - code: time_from
     description: valid value - 24hr format ("0000" to "2359")
     reference: <PR/Issue/Discussion Links md format text>
-  - code: TIME_TO
+  - code: time_to
     description: valid value - 24hr format ("0000" to "2359"), time_to >= time_from
     reference: <PR/Issue/Discussion Links md format text>
 provider_timing:
-  allOf:
+  # Fix : Removed the unnecessary allOf.
+  # Doubt : Type and location twice in provider timing.
+  # allOf:
     - $ref: "#/timing"
     - code: TYPE
       description: Description about the tags
